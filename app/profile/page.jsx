@@ -1,22 +1,10 @@
-//import getData from '../utility/getData.js'
+import getData from '../utility/getData.js'
 import Image from "next/image.js"
-
-
- async function getData() {
-    const res = await fetch('http://localhost:3001/profiles')
-    const data = await res.json()
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
-    }
-   
-   // console.log(data)
-    return data
-  }
 
 export default async function Profile(){
 
-    const data = await getData()
-    console.log(data)
+    const data = await getData('http://localhost:3001/profiles')
+   // console.log(data)
 
     return(
        <div className= "grid h-screen place-items-center">
