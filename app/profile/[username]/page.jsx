@@ -1,9 +1,10 @@
-import getData from '../utility/getData.js'
-import Image from "next/image.js"
+import getData from '@/app/utility/getData.js'
+import Image from 'next/image'
 
-export default async function Profile(){
 
-    const data = await getData('http://localhost:3001/profiles')
+export default async function Profile({params}){
+
+    const user = await getData(`http://localhost:3001/profiles/${params.username}`)
    // console.log(data)
 
     return(
@@ -12,17 +13,17 @@ export default async function Profile(){
            <Image className="w-32 h-32 rounded-full mx-auto border-black border-2" src="/../public/pp.jpg" alt="profile-picture" width="128" height="128"/>
        
             <div className="text- mt-5">
-             <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{data[0].firstName} {data[0].lastName}</h2>
+             <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{user.firstName} {user.lastName}</h2>
             
-             <p>@{data[0].username}</p>
+             <p>@{user.username}</p>
          </div>
     
             <p className="mt-2 text-sm text-black">Lorem ipsum dolor sit amet, consecte adipisicing elit. Voluptatibus quia
             Maiores et perferendis eaque.</p>
 
             <p className="mt-2 text-sm text-black">
-                Faculty of {data[0].faculty}<br/>
-                Intake {data[0].intake}
+                Faculty of {user.faculty}<br/>
+                Intake {user.intake}
             </p>
     
          </div>
