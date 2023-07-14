@@ -8,7 +8,7 @@ const Navbar = () => {
    const Menus = [
       {name:"Home", route:"/home"},
       {name:"Explore", route:"/explore"},
-      {name:"Profile", route:"/profile"}
+      {name:"Profile", route:"/user"}
    ]
    
    const pathName = usePathname();
