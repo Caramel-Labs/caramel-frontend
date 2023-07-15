@@ -5,8 +5,8 @@ import Image from 'next/image'
 export default async function Profile({params}){
 
     const user = await getData(`http://localhost:3001/profiles/${params.username}`)
-    //const currentUser = user[0]
-    console.log(user)
+    const currentUser = user[0]
+   // console.log(user)
 
     return(
        <div className= "grid h-screen place-items-center">
@@ -14,17 +14,17 @@ export default async function Profile({params}){
            <Image className="w-32 h-32 rounded-full mx-auto border-black border-2" src="/../public/pp.jpg" alt="profile-picture" width="128" height="128"/>
        
             <div className="text- mt-5">
-             <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{user[0].firstName} {user.lastName}</h2>
+             <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{currentUser.firstName} {user.lastName}</h2>
             
-             <p>@{user.username}</p>
+             <p>@{currentUser.username}</p>
          </div>
     
             <p className="mt-2 text-sm text-black">Lorem ipsum dolor sit amet, consecte adipisicing elit. Voluptatibus quia
             Maiores et perferendis eaque.</p>
 
             <p className="mt-2 text-sm text-black">
-                Faculty of {user.faculty}<br/>
-                Intake {user.intake}
+                Faculty of {currentUser.faculty}<br/>
+                Intake {currentUser.intake}
             </p>
     
          </div>
@@ -33,7 +33,7 @@ export default async function Profile({params}){
         <h2 >Events </h2> <br/>
          <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
             <li className="pb-3 sm:pb-4">
-                <div class="flex items-center space-x-4">
+                <div className="flex items-center space-x-4">
                     <div className="flex-shrink-0">
                         <Image className="rounded-full" src= "/../public/rota.jpeg" alt= "event-image" width="32" height="32"/> 
                     </div>
