@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function EventCard(props){
 
-    const {title, society, i} = props
+    const {title, eventName, i} = props
      
     return (
         <div key={i}className="bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg border-black border-2">
