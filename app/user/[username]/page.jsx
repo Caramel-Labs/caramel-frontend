@@ -5,7 +5,8 @@ import Image from 'next/image'
 export default async function Profile({params}){
 
     const user = await getData(`http://localhost:3001/profiles/${params.username}`)
-   // console.log(data)
+    //const currentUser = user[0]
+    console.log(user)
 
     return(
        <div className= "grid h-screen place-items-center">
@@ -13,7 +14,7 @@ export default async function Profile({params}){
            <Image className="w-32 h-32 rounded-full mx-auto border-black border-2" src="/../public/pp.jpg" alt="profile-picture" width="128" height="128"/>
        
             <div className="text- mt-5">
-             <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{user.firstName} {user.lastName}</h2>
+             <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{user[0].firstName} {user.lastName}</h2>
             
              <p>@{user.username}</p>
          </div>
@@ -30,60 +31,22 @@ export default async function Profile({params}){
          
         <div className="">
         <h2 >Events </h2> <br/>
-         <ul class="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
-            <li class="pb-3 sm:pb-4">
+         <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+            <li className="pb-3 sm:pb-4">
                 <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
+                    <div className="flex-shrink-0">
                         <Image className="rounded-full" src= "/../public/rota.jpeg" alt= "event-image" width="32" height="32"/> 
                     </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-black truncate">
+                    <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-black truncate">
                         Rota Fiesta 2023
                         </p>
-                        <p class="text-sm text-black truncate">
+                        <p className="text-sm text-black truncate">
                         Rotaract Club
                         </p>
                     </div>
-                    <div class="inline-flex items-center text-base font-semibold text-black">
+                    <div className="inline-flex items-center text-base font-semibold text-black">
                         2 days <br/>
-                        more
-                    </div>
-                </div>
-            </li>
-            <li class="pb-3 sm:pb-4">
-                <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <Image className="rounded-full" src= "/../public/ieee.jpg" alt= "event-image" width="32" height="32"/> 
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-black truncate">
-                        Step into Industry
-                        </p>
-                        <p class="text-sm text-black truncate">
-                        IEEE Student Branch
-                        </p>
-                    </div>
-                    <div class="inline-flex items-center text-base font-semibold text-black">
-                        5 days <br/>
-                        more
-                    </div>
-                </div>
-            </li>
-            <li class="pb-3 sm:pb-4">
-                <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                        <Image className="rounded-full" src= "/../public/foss.jpg" alt= "event-image" width="32" height="32"/> 
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <p class="text-sm font-medium text-black truncate">
-                        Computer Exhibition
-                        </p>
-                        <p class="text-sm text-black truncate">
-                        FOSS KDU
-                        </p>
-                    </div>
-                    <div class="inline-flex items-center text-base font-semibold text-black">
-                        6 days <br/>
                         more
                     </div>
                 </div>
