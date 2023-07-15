@@ -6,7 +6,7 @@ export default function Home() {
     
     <h1 className="text-gray-700 font-bold text-2xl">Events</h1> 
         
-        {/* The single events card component */}
+        {/* The events card component */}
           <div className="bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg border-black border-2">
             <Image className = "rounded-t-lg " src="/../public/step.jpg" alt="" width= "390" height="200"/>
             <div className="py-6 px-8 rounded-lg bg-white">
