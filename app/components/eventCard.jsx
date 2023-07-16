@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 
-export default function EventCard(props){
+export default function EventCard(props) {
 
     const {title, eventName, society, i} = props
      
