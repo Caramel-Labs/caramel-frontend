@@ -15,8 +15,8 @@ export default function EventCard(props) {
               </div>
               <button className="mt-6 py-2 px-4 bg-orange-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300 ml-3 mb-6 mr-0"> Join </button>
             </div>
-            <div className="absolute top-2 right-2 py-2 px-4 bg-black rounded-lg">
-              <span className="text-md text-white"> 2 days more </span>
+            <div className="absolute top-2 right-2 py-1.5 px-3 bg-black rounded-lg">
+              <span className="text-md text-white text-xs"> 2 days more </span>
             </div>
           </div>
 
