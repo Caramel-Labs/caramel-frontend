@@ -8,8 +8,8 @@ export default function EventCard(props) {
     const [join, setJoin] = useState(false)
      
     return (
-        <div key={i}className="bg-white relative shadow-lg hover:shadow-xl transition duration-500 rounded-lg border-black border-2 my-5">
-            <Image className = "rounded-t-lg " src="/../public/step.jpg" alt="" width= "390" height="200"/>
+        <div key={i}className="bg-white relative drop-shadow-xl hover:shadow-xl transition duration-500 rounded-lg border-slate-300 border-1 my-5">
+            <Image className = "rounded-t-lg " src="/../public/event-bg.jpg" alt="" width= "390" height="200"/>
             <div className="py-6 px-8 rounded-lg bg-white flex justify-between">
               <div>
                 <h1 className="text-gray-700 font-bold text-xl mb-3 hover:text-gray-900 hover:cursor-pointer mr-50 ml-50 mt-3">{title || eventName}</h1>
