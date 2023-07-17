@@ -1,7 +1,6 @@
 import getData from '@/app/utility/getData.js'
 import EventCard from '@/app/components/eventCard.jsx'
 import getToday from '@/app/utility/getToday.js'
-import { requestToBodyStream } from 'next/dist/server/body-streams'
 
 export default async function Home() {
   
@@ -16,7 +15,7 @@ export default async function Home() {
     <h1 className="font-bold text-3xl pb-3">EVENTS</h1> 
     
         {events.map((event, i)=>(
-          <EventCard key={i} eventName={event.eventName} society={event.society} />
+          <EventCard key={i} eventName={event.eventName} society={event.society} eventId = {event.eventId} />
          ))}
           
 
