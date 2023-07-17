@@ -8,7 +8,8 @@ export default async function Home() {
   return (
   <div className='p-5'>
     
-    <h1 className="text-gray-700 font-bold text-2xl pb-3">Events</h1> 
+    <h3 className='font-bold'>Monday, June 12</h3>
+    <h1 className="font-bold text-2xl pb-3">Events</h1> 
     
         {events.map((event, i)=>(
           <EventCard key={i} title={event.title || event.eventName} society={event.society} />
