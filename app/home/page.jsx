@@ -1,15 +1,18 @@
 import getData from '@/app/utility/getData.js'
 import EventCard from '@/app/components/eventCard.jsx'
-
+import getToday from '@/app/utility/getToday.js'
+import { requestToBodyStream } from 'next/dist/server/body-streams'
 
 export default async function Home() {
   
  const events  = await getData('http://localhost:3001/events/all')
- //console.log(events)
+ const today = getToday()
+ //console.log(today)
+
   return (
   <div className='p-5'>
     
-    <h3 className='font-bold'>Monday, June 12</h3>
+    <h3 className='font-bold'> {today} </h3>
     <h1 className="font-bold text-2xl pb-3">Events</h1> 
     
         {events.map((event, i)=>(

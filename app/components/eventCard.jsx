@@ -1,7 +1,8 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import joinEvent from '@/app/utility/joinEvent.js'
+//import joinEvent from '@/app/utility/joinEvent.js'
+
 
 export default function EventCard(props) {
 
