@@ -1,5 +1,5 @@
 
 export default async function joinEvent() {
-    setJoin(true)
+    //setJoin(true)
     return
 }
