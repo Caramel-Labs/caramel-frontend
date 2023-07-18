@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 export default function EventCard(props) {
 
-    const {i, eventId, eventName, society} = props
+    const {i, eventId, eventName, society} = props.event
     const [join, setJoin] = useState(false)
 
     //The function to post data of joined evens to the api
@@ -31,6 +31,7 @@ export default function EventCard(props) {
         console.log("Event joined successfully")
       } else {
         console.log("Event join failed")
+        setJoin(false)
       }
 
     }

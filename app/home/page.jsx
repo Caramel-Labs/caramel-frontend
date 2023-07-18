@@ -15,7 +15,7 @@ export default async function Home() {
     <h1 className="font-bold text-3xl pb-3">EVENTS</h1> 
     
         {events.map((event, i)=>(
-          <EventCard key={i} eventName={event.eventName} society={event.society} eventId = {event.eventId} />
+          <EventCard key={i} event ={event} />
          ))}
           
 
