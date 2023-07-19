@@ -9,6 +9,7 @@ export default async function Profile({params}){
     const user = await getData(`http://localhost:3001/profiles/${params.username}`)
     const currentUser = user[0]
     const joinedEvents = user[1]
+    const imgPath = `/../public/${params.username}.jpg`
     //console.log(user[1])
 
     return(
@@ -16,7 +17,7 @@ export default async function Profile({params}){
     /* Profile card */
        <div className= "grid h-screen place-items-center">
          <div className="p-5  text-center text-black max-w-sm">
-           <Image className="w-32 h-32 rounded-full mx-auto border-black border-2" src="/../public/pp.jpg" alt="profile-picture" width="128" height="128"/>
+           <Image className="w-32 h-32 rounded-full mx-auto border-black border-1 object-cover" src={imgPath} alt="profile-picture" width="128" height="128"/>
        
             <div className="text- mt-5">
              <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{currentUser.firstName} {user.lastName}</h2>

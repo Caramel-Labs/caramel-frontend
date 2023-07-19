@@ -6,4 +6,4 @@
 
 # Disqus
 
-- Debouncing || Batching calls in the feed (join button) ??
+- What should we do if join event was failed ???
