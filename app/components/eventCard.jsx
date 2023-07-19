@@ -9,7 +9,7 @@ export default function EventCard(props) {
     const {i, eventId, eventName, society} = props.event
     const [join, setJoin] = useState(false)
 
-    //The function to post data of joined evens to the api
+    // posting data of joined events to the API
     async function handleClick() {
       setJoin(true)
       
