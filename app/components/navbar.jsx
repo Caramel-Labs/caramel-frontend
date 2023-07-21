@@ -21,7 +21,7 @@ const Navbar = () => {
       {Menus.map((menu, i)=>(
 
          <Link key={i} href={menu.route} className={`inline-flex flex-col items-center justify-center font-medium px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group ${pathName.includes(menu.route) && " bg-blue-600"}`}>
-            <button  type="button">
+            <button type="button">
                <span className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">{menu.name}</span>
             </button>
          </Link>
