@@ -12,7 +12,7 @@ export default async function Home() {
   <div className='p-5'>
     
     <h3 className='font-bold'> {today} </h3>
-    <h1 className="font-bold text-3xl pb-3">EVENTS</h1> 
+    <h1 className="font-bold text-3xl pb-3">EVENTS</h1>
     
         {events.map((event, i)=>(
           <EventCard key={i} event ={event} />
