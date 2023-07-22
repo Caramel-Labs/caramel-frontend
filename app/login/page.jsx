@@ -16,12 +16,12 @@ export default function LoginPage(){
                         
                         <h3 className="text-3xl font-extrabold">SIGN IN TO CARAMEL</h3>
                         <div>
-                            <label for="email" className="text-sm font-medium block mb-2">Your email</label>
+                            <label htmlFor="email" className="text-sm font-medium block mb-2">Your email</label>
                             <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" placeholder="name@example.com" required=""/>
                         </div>
 
                         <div>
-                            <label for="password" className="text-sm font-medium block mb-2">Your password</label>
+                            <label htmlFor="password" className="text-sm font-medium block mb-2">Your password</label>
                             <input type="password" name="password" id="password" required length="8"  placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5"/>
                         </div>
 
