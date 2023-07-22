@@ -26,8 +26,7 @@ export default function EventCard(props) {
         body: JSON.stringify(data)
       })
 
-
-      if(response.ok) {
+      if (response.ok) {
         console.log("Event joined successfully")
       } else {
         console.log("Event join failed")
