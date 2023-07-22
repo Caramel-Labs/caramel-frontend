@@ -11,7 +11,7 @@ export default async function Home() {
   return (
   <div className='p-5'>
     
-    <h3 className='font-bold'> {today} </h3>
+    <h3 className='font-bold'>{ today }</h3>
     <h1 className="font-bold text-3xl pb-3">EVENTS</h1>
     
         {events.map((event, i)=>(
