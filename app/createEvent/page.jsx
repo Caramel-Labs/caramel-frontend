@@ -12,9 +12,15 @@ export default function createEvent() {
   // List of all faculties (fetch from API later)
   const facultiesList = [
     'Faculty of Engineering',
+    'Faculty of Defence and Strategic Studies',
+    'Faculty of Law',
     'Faculty of Management, Social Sciences and Humanities',
     'Faculty of Computing',
     'Faculty of Medicine',
+    'Faculty of Allied Health Sciences',
+    'Faculty of Built Environment and Spatial Sciences',
+    'Faculty of Technology',
+    'Faculty of Criminal Justice'
     // Add more faculties here
   ];
 
@@ -96,7 +102,8 @@ export default function createEvent() {
                     type="text"
                     value={eventName}
                     onChange={(e) => setEventName(e.target.value)}
-                    className='mt-2 border-2'
+                    className='mt-2 border-2 p-2 w-full'
+                    placeholder='Keep your event name as short as possible'
                     required
                 />
                 <br /><br />
@@ -109,7 +116,8 @@ export default function createEvent() {
                 <textarea
                     value={eventDescription}
                     onChange={(e) => setEventDescription(e.target.value)}
-                    className='mt-2 border-2'
+                    className='mt-2 border-2 p-2 w-full'
+                    placeholder='What is your event all about?'
                     required
                 />
                 <br /><br />
@@ -122,7 +130,7 @@ export default function createEvent() {
                 <select
                     value={eventAvailability}
                     onChange={(e) => setEventAvailability(e.target.value)}
-                    className='mt-2'
+                    className='mt-2 p-2 w-full'
                 >
                     <option value="all">All Faculties</option>
                     <option value="facultyOnly">My Faculty Only</option>
@@ -184,12 +192,12 @@ export default function createEvent() {
             <div>
                 <label>Event Date:</label>
                 <br />
-                <div className='flex gap-x-4'>
-                    <select name="day" value={eventDate.day} onChange={handleDateChange} required>
+                <div className='mt-2 flex gap-x-4'>
+                    <select name="day" value={eventDate.day} onChange={handleDateChange} className='p-2' required>
                         <option value="">Day</option>
                         {/* Add options for days here */}
                     </select>
-                    <select name="month" value={eventDate.month} onChange={handleDateChange} required>
+                    <select name="month" value={eventDate.month} onChange={handleDateChange} className='p-2' required>
                         <option value="">Month</option>
                         {/* Add options for months here */}
                     </select>
@@ -199,7 +207,7 @@ export default function createEvent() {
                         value={eventDate.year}
                         onChange={handleDateChange}
                         placeholder="Year"
-                        className='w-1/3 border-2'
+                        className='w-1/3 border-2 p-2'
                         required
                     />
                 </div>
@@ -210,31 +218,33 @@ export default function createEvent() {
             <div>
                 <label>Event Time:</label>
                 <br />
-                <input
-                    type="number"
-                    name="hour"
-                    min="1"
-                    max="12"
-                    value={eventTime.hour}
-                    onChange={handleTimeChange}
-                    className='border-2'
-                    required
-                />
-                :
-                <input
-                    type="number"
-                    name="minute"
-                    min="0"
-                    max="59"
-                    value={eventTime.minute}
-                    onChange={handleTimeChange}
-                    className='border-2'
-                    required
-                />
-                <select name="ampm" value={eventTime.ampm} onChange={handleAMPMChange}>
-                    <option value="AM">AM</option>
-                    <option value="PM">PM</option>
-                </select>
+                <div className='mt-2 flex gap-x-4'>
+                    <input
+                        type="number"
+                        name="hour"
+                        min="1"
+                        max="12"
+                        value={eventTime.hour}
+                        onChange={handleTimeChange}
+                        className='border-2 p-2'
+                        required
+                    />
+                    :
+                    <input
+                        type="number"
+                        name="minute"
+                        min="0"
+                        max="59"
+                        value={eventTime.minute}
+                        onChange={handleTimeChange}
+                        className='border-2 p-2'
+                        required
+                    />
+                    <select name="ampm" value={eventTime.ampm} onChange={handleAMPMChange} className='p-2'>
+                        <option value="AM">AM</option>
+                        <option value="PM">PM</option>
+                    </select>
+                </div>
                 <br /><br />
             </div>
 
@@ -243,14 +253,14 @@ export default function createEvent() {
                 <label>
                 Event Banner
                 <br />
-                <span className='text-sm'>We recommend a 1920px by 1080px image</span>
-                <input type="file" accept="image/*" onChange={handleFileChange} />
+                <span className='text-xs'>We recommend a 1920px by 1080px image</span>
+                <input type="file" accept="image/*" onChange={handleFileChange} className='mt-2' />
                 </label>
             </div>
 
             {/* Submit Button ================================================================================================== */}
-            <div className='pt-20 flex justify-center'>
-                <button type="submit" className='border-2 p-3'>Create Event</button>
+            <div className='pt-12 flex justify-center'>
+                <button type="submit" className='border-2 p-3 px-16 rounded-lg'>Create Event</button>
             </div>
 
         </form>
