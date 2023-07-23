@@ -88,131 +88,170 @@ export default function createEvent() {
 
         <form onSubmit={handleSubmit}>
 
-        {/* Event Name */}
-        <div>
-            <label>Event Name:</label>
-            <br />
-            <input
-                type="text"
-                value={eventName}
-                onChange={(e) => setEventName(e.target.value)}
-                className='border-2'
-                required
-            />
-            <br /><br />
-        </div>
-
-        {/* Event description */}
-        <div>
-            <label>Event Description:</label>
-            <br />
-            <textarea
-                value={eventDescription}
-                onChange={(e) => setEventDescription(e.target.value)}
-                className='border-2'
-                required
-            />
-            <br /><br />
-        </div>
-
-        <div>
-            <label>Event Availability:</label>
-            <br />
-            <select
-                value={eventAvailability}
-                onChange={(e) => setEventAvailability(e.target.value)}
-            >
-                <option value="all">All Faculties</option>
-                <option value="facultyOnly">My Faculty Only</option>
-                <option value="faculty">Selected Faculties</option>
-            </select>
-            <br /><br />
-        </div>
-
-        {eventAvailability === 'faculty' && (
+            {/* Event Name ===================================================================================================== */}
             <div>
-                <label>Select Faculties:</label>
+                <label>Event Name:</label>
+                <br />
+                <input
+                    type="text"
+                    value={eventName}
+                    onChange={(e) => setEventName(e.target.value)}
+                    className='mt-2 border-2'
+                    required
+                />
+                <br /><br />
+            </div>
+
+            {/* Event Description ============================================================================================== */}
+            <div>
+                <label>Event Description:</label>
+                <br />
+                <textarea
+                    value={eventDescription}
+                    onChange={(e) => setEventDescription(e.target.value)}
+                    className='mt-2 border-2'
+                    required
+                />
+                <br /><br />
+            </div>
+
+            {/* Event Availability ============================================================================================= */}
+            <div>
+                <label>Event Availability:</label>
                 <br />
                 <select
-                multiple
-                value={selectedFaculties}
-                onChange={(e) => setSelectedFaculties(Array.from(e.target.selectedOptions, (option) => option.value))}
+                    value={eventAvailability}
+                    onChange={(e) => setEventAvailability(e.target.value)}
+                    className='mt-2'
                 >
-                {facultiesList.map((faculty) => (
-                    <option key={faculty} value={faculty}>
-                    {faculty}
-                    </option>
-                ))}
+                    <option value="all">All Faculties</option>
+                    <option value="facultyOnly">My Faculty Only</option>
+                    <option value="faculty">Selected Faculties</option>
                 </select>
                 <br /><br />
             </div>
-        )}
 
-        <div>
-            <label>Event Date:</label>
-            <br />
-            <select name="day" value={eventDate.day} onChange={handleDateChange} required>
-                <option value="">Day</option>
-                {/* Add options for days here */}
-            </select>
-            <select name="month" value={eventDate.month} onChange={handleDateChange} required>
-                <option value="">Month</option>
-                {/* Add options for months here */}
-            </select>
-            <input
-                type="number"
-                name="year"
-                value={eventDate.year}
-                onChange={handleDateChange}
-                placeholder="Year"
-                required
-            />
-            <br /><br />
-        </div>
+            {/* {eventAvailability === 'faculty' && (
+                <div>
+                    <label>Select Faculties:</label>
+                    <br />
+                    <select
+                        multiple
+                        value={selectedFaculties}
+                        onChange={(e) => setSelectedFaculties(Array.from(e.target.selectedOptions, (option) => option.value))}
+                    >
+                    {facultiesList.map((faculty) => (
+                        <option key={faculty} value={faculty}>
+                        {faculty}
+                        </option>
+                    ))}
+                    </select>
+                    <br /><br />
+                </div>
+            )} */}
 
-        <div>
-            <label>Event Time:</label>
-            <br />
-            <input
-                type="number"
-                name="hour"
-                min="1"
-                max="12"
-                value={eventTime.hour}
-                onChange={handleTimeChange}
-                className='border-2'
-                required
-            />
-            :
-            <input
-                type="number"
-                name="minute"
-                min="0"
-                max="59"
-                value={eventTime.minute}
-                onChange={handleTimeChange}
-                className='border-2'
-                required
-            />
-            <select name="ampm" value={eventTime.ampm} onChange={handleAMPMChange}>
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-            </select>
-            <br /><br />
-        </div>
+            {/* Select Availability ============================================================================================ */}
+            {eventAvailability === 'faculty' && (
+            <div>
+                <label>Select Faculties:</label>
+                <br />
+                {facultiesList.map((faculty) => (
+                <div key={faculty}>
+                    <input
+                    type="checkbox"
+                    value={faculty}
+                    checked={selectedFaculties.includes(faculty)}
+                    onChange={(e) => {
+                        const { value, checked } = e.target;
+                        setSelectedFaculties((prevState) => {
+                        if (checked) {
+                            return [...prevState, value];
+                        } else {
+                            return prevState.filter((selectedFaculty) => selectedFaculty !== value);
+                        }
+                        });
+                    }}
+                    />
+                    <label> {faculty}</label>
+                    <br />
+                </div>
+                ))}
+                <br />
+            </div>
+            )}
 
-        <div>
-            <label>
-            Event Banner
-            <br />
-            <span className='text-sm'>We recommend a 1920px by 1080px image</span>
-            <input type="file" accept="image/*" onChange={handleFileChange} />
-            </label>
-        </div>
+            {/* Event Date ===================================================================================================== */}
+            <div>
+                <label>Event Date:</label>
+                <br />
+                <div className='flex gap-x-4'>
+                    <select name="day" value={eventDate.day} onChange={handleDateChange} required>
+                        <option value="">Day</option>
+                        {/* Add options for days here */}
+                    </select>
+                    <select name="month" value={eventDate.month} onChange={handleDateChange} required>
+                        <option value="">Month</option>
+                        {/* Add options for months here */}
+                    </select>
+                    <input
+                        type="number"
+                        name="year"
+                        value={eventDate.year}
+                        onChange={handleDateChange}
+                        placeholder="Year"
+                        className='w-1/3 border-2'
+                        required
+                    />
+                </div>
+                <br /><br />
+            </div>
 
-        <div className='pt-20 flex justify-center'>
-            <button type="submit" className='border-2 p-3'>Create Event</button>
-        </div>
+            {/* Event Time ===================================================================================================== */}
+            <div>
+                <label>Event Time:</label>
+                <br />
+                <input
+                    type="number"
+                    name="hour"
+                    min="1"
+                    max="12"
+                    value={eventTime.hour}
+                    onChange={handleTimeChange}
+                    className='border-2'
+                    required
+                />
+                :
+                <input
+                    type="number"
+                    name="minute"
+                    min="0"
+                    max="59"
+                    value={eventTime.minute}
+                    onChange={handleTimeChange}
+                    className='border-2'
+                    required
+                />
+                <select name="ampm" value={eventTime.ampm} onChange={handleAMPMChange}>
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+                <br /><br />
+            </div>
+
+            {/* Event Banner =================================================================================================== */}
+            <div>
+                <label>
+                Event Banner
+                <br />
+                <span className='text-sm'>We recommend a 1920px by 1080px image</span>
+                <input type="file" accept="image/*" onChange={handleFileChange} />
+                </label>
+            </div>
+
+            {/* Submit Button ================================================================================================== */}
+            <div className='pt-20 flex justify-center'>
+                <button type="submit" className='border-2 p-3'>Create Event</button>
+            </div>
 
         </form>
     </div>
