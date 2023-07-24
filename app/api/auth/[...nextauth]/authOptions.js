@@ -22,12 +22,12 @@ const authOptions = {
                     })
                 })
                     
-                const user = await res.json()
-                console.log(user)
+                const jwt = await res.json()
+                console.log(jwt)
 
-                if (user) {
-                    return user
-                }else {
+                if (jwt) {
+                    return jwt
+                } else {
                     return null
                 }
             
