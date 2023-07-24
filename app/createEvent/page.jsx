@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export default function createEvent() {
+export default function CreateEvent() {
   // State variables to manage form data
   const [eventName, setEventName] = useState('');
   const [eventDescription, setEventDescription] = useState('');

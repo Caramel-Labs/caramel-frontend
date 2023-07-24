@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link"
 
 export default function LoginPage(){
@@ -12,12 +11,12 @@ export default function LoginPage(){
             <div className="flex flex-col content-center justify-center">
                 <div className="bg-white rounded-lg h-1/2 max-w-sm p-4 sm:p-6 lg:p-8">
                 
-                    <form className="space-y-6" action="#">
+                    <form className="space-y-6" action="" method="post">
                         
                         <h3 className="text-3xl font-extrabold">SIGN IN TO CARAMEL</h3>
                         <div>
                             <label htmlFor="email" className="text-sm font-medium block mb-2">Your email</label>
-                            <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" placeholder="name@example.com" required=""/>
+                            <input type="email" name="email" id="email" required placeholder="name@example.com" className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5" />
                         </div>
 
                         <div>
