@@ -21,7 +21,6 @@ export default function CreateEvent() {
     'Faculty of Built Environment and Spatial Sciences',
     'Faculty of Technology',
     'Faculty of Criminal Justice'
-    // Add more faculties here
   ];
 
   // State variables to manage date and time
