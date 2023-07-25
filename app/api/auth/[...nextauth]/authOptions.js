@@ -8,12 +8,10 @@ const authOptions = {
         CredentialsProvider({
             name: 'credentials',
             credentials: {
-                email: { label: "Email", type: "email", placeholder: "mfer@kdu.ac.lk" },
+                email: { label: "Email", type: "email", placeholder: "hello@gmail.com" },
                 password: { label: "Password", type: "password" }
             },
-            pages: {
-                signIn: '/auth/login',
-            },
+            
             async authorize(credentials) {
                 console.log(credentials)
                 const res = await fetch('http://localhost:3001/auth', {
@@ -39,6 +37,13 @@ const authOptions = {
             }
         })
     ],
+
+    theme: {
+        colorScheme: "light",
+    },
+    pages: {
+        signIn: '/auth/login',
+    },
 }
 
 export default authOptions

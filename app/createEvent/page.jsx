@@ -65,7 +65,6 @@ export default function CreateEvent() {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-
     // Do something with the form data, e.g., send it to the server
     const eventData = {
       name: eventName,
@@ -259,7 +258,7 @@ export default function CreateEvent() {
 
             {/* Submit Button ================================================================================================== */}
             <div className='pt-12 flex justify-center'>
-                <button type="submit" className='border-2 p-3 px-16 rounded-lg'>Create Event</button>
+                <button type="submit" className='border-2 p-3 px-16 rounded-lg' onClick={handleSubmit}>Create Event</button>
             </div>
 
         </form>
