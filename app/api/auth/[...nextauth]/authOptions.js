@@ -1,4 +1,5 @@
 import  CredentialsProvider  from 'next-auth/providers/credentials'
+import verifyJWT from '@/app/utility/verifyJWT'
 
 //const pagePath= "@app/auth/login"
 
@@ -10,23 +11,26 @@ const authOptions = {
                 email: { label: "Email", type: "email", placeholder: "mfer@kdu.ac.lk" },
                 password: { label: "Password", type: "password" }
             },
-        
+            pages: {
+                signIn: '/auth/login',
+            },
             async authorize(credentials) {
                 console.log(credentials)
                 const res = await fetch('http://localhost:3001/auth', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        email: credentials.email,
-                        password: credentials.password
+                        email: credentials?.email,
+                        password: credentials?.password
                     })
                 })
                     
-                const jwt = await res.json()
-                console.log(jwt)
+                const user = await res.json()
+                console.log(user)
 
-                if (jwt) {
-                    return jwt
+                if (user) {
+                    return user
+                    
                 } else {
                     return null
                 }

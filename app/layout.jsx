@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import AuthProvider from '@/app/components/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/x-icon" href="/favicon.png" sizes="any" />
       </head>
       <body className={inter.className}>
+        <AuthProvider>
         {children}
+        </AuthProvider>
       </body>
     </html>
   )
