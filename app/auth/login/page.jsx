@@ -4,7 +4,7 @@ import Link from "next/link"
 import { signIn } from "next-auth/react";
 import React, { useRef } from "react";
 
-export default function LoginPage(){
+export default function LoginPage() {
 
     //const emailRegex = "/@kdu\.ac\.lk$/"
     //const passwordRegex = "[a-z0-9]{1,15}"
