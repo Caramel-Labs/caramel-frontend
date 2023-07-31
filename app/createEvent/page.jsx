@@ -9,6 +9,14 @@ export default function CreateEvent() {
   const [eventAvailability, setEventAvailability] = useState('all'); // Default value is 'all'
   const [selectedFaculties, setSelectedFaculties] = useState([]);
 
+  // State variables to manage date and time
+  const [eventDate, setEventDate] = useState('');
+  const [eventTime, setEventTime] = useState('');
+
+  // State variable to manage the event banner (file input)
+  const [eventBanner, setEventBanner] = useState(null);
+
+
   // List of all faculties (fetch from API later)
   const facultiesList = [
     'Faculty of Engineering',
@@ -23,38 +31,18 @@ export default function CreateEvent() {
     'Faculty of Criminal Justice'
   ];
 
-  // State variables to manage date and time
-  const [eventDate, setEventDate] = useState({ day: '', month: '', year: '' });
-  const [eventTime, setEventTime] = useState({ hour: '', minute: '', ampm: 'AM' });
-
-  // State variable to manage the event banner (file input)
-  const [eventBanner, setEventBanner] = useState(null);
-
-  // Helper function to handle date changes
+  // Helper function to handle date changes (unnecessary??)
   const handleDateChange = (e) => {
-    const { name, value } = e.target;
-    setEventDate((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const { value } = e.target;
+    setEventDate(value);
   };
 
   // Helper function to handle time changes
   const handleTimeChange = (e) => {
-    const { name, value } = e.target;
-    setEventTime((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    const { value } = e.target;
+    setEventTime(value);
   };
 
-  // Helper function to handle AM/PM dropdown change
-  const handleAMPMChange = (e) => {
-    setEventTime((prevState) => ({
-      ...prevState,
-      ampm: e.target.value,
-    }));
-  };
 
   // Helper function to handle file input change (event banner)
   const handleFileChange = (e) => {
@@ -63,7 +51,7 @@ export default function CreateEvent() {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     // Do something with the form data, e.g., send it to the server
     const eventData = {
@@ -76,13 +64,31 @@ export default function CreateEvent() {
       banner: eventBanner,
     };
 
+
+    console.log("output", eventData)
+
+    // Send the data to the server
+    const response = await fetch('http://localhost:3001/events/newEvent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData)
+      })
+
+      if (response.ok) {
+        console.log("Event created successfully")
+      } else {
+        console.log("Event creation failed")
+      }
+
     // Reset the form after submission
     setEventName('');
     setEventDescription('');
     setEventAvailability('all');
     setSelectedFaculties([]);
-    setEventDate({ day: '', month: '', year: '' });
-    setEventTime({ hour: '', minute: '', ampm: 'AM' });
+    setEventDate(new Date());
+    setEventTime('');
     setEventBanner(null);
   };
 
@@ -188,62 +194,32 @@ export default function CreateEvent() {
 
             {/* Event Date ===================================================================================================== */}
             <div>
-                <label>Event Date:</label>
-                <br />
-                <div className='mt-2 flex gap-x-4'>
-                    <select name="day" value={eventDate.day} onChange={handleDateChange} className='p-2' required>
-                        <option value="">Day</option>
-                        {/* Add options for days here */}
-                    </select>
-                    <select name="month" value={eventDate.month} onChange={handleDateChange} className='p-2' required>
-                        <option value="">Month</option>
-                        {/* Add options for months here */}
-                    </select>
-                    <input
-                        type="number"
-                        name="year"
-                        value={eventDate.year}
-                        onChange={handleDateChange}
-                        placeholder="Year"
-                        className='w-1/3 border-2 p-2'
-                        required
-                    />
-                </div>
-                <br /><br />
+              <label>Event Date:</label>
+              <br />
+                <input
+                  type="date"
+                  value={eventDate}
+                  onChange={handleDateChange}
+                  className='mt-2 border-2 p-2 w-full'
+                  min={new Date().toISOString().split("T")[0]}
+                  required
+                />
+              <br /><br />
             </div>
 
             {/* Event Time ===================================================================================================== */}
             <div>
-                <label>Event Time:</label>
-                <br />
-                <div className='mt-2 flex gap-x-4'>
-                    <input
-                        type="number"
-                        name="hour"
-                        min="1"
-                        max="12"
-                        value={eventTime.hour}
-                        onChange={handleTimeChange}
-                        className='border-2 p-2'
-                        required
-                    />
-                    :
-                    <input
-                        type="number"
-                        name="minute"
-                        min="0"
-                        max="59"
-                        value={eventTime.minute}
-                        onChange={handleTimeChange}
-                        className='border-2 p-2'
-                        required
-                    />
-                    <select name="ampm" value={eventTime.ampm} onChange={handleAMPMChange} className='p-2'>
-                        <option value="AM">AM</option>
-                        <option value="PM">PM</option>
-                    </select>
-                </div>
-                <br /><br />
+              <label>Event Time:</label>
+              <br />
+                <input
+                  type="time"
+                  name="eventTime"
+                  value={eventTime}
+                  onChange={handleTimeChange}
+                  className='border-2 p-2'
+                  required
+                />
+              <br /><br />
             </div>
 
             {/* Event Banner =================================================================================================== */}
@@ -264,4 +240,4 @@ export default function CreateEvent() {
         </form>
     </div>
   );
-};
+}
