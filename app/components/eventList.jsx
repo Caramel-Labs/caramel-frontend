@@ -16,7 +16,7 @@ export default function EventList(props) {
                 </div>
                 <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-black truncate">
-                    {event.eventName}
+                    {event.name}
                     </p>
                     <p className="text-sm text-black truncate">
                     {event.society}
