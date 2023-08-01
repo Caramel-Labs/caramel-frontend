@@ -50,19 +50,39 @@ export default function CreateEvent() {
     setEventBanner(file);
   };
 
+  // Helper function to handle availability selection
+  const handleAvailabilityChange = (e) => {
+    const { value } = e.target;
+    setEventAvailability(value);
+  }
+
   // Handle form submission
   async function handleSubmit(e) {
     e.preventDefault();
     // Do something with the form data, e.g., send it to the server
+    
+    if( eventAvailability ==='all') {
+      console.log("All faculties selected")
+      selectedFaculties.push("all");
+    }
+
     const eventData = {
       name: eventName,
       description: eventDescription,
-      availability: eventAvailability,
       selectedFaculties: selectedFaculties,
       date: eventDate,
       time: eventTime,
-      banner: eventBanner,
+      //banner: eventBanner,
     };
+
+     // Reset the form after submission
+     setEventName('');
+     setEventDescription('');
+     setEventAvailability('all');
+     setSelectedFaculties([]);
+     setEventDate('');
+     setEventTime('');
+     setEventBanner(null);
 
 
     console.log("output", eventData)
@@ -78,18 +98,12 @@ export default function CreateEvent() {
 
       if (response.ok) {
         console.log("Event created successfully")
+        
       } else {
         console.log("Event creation failed")
       }
 
-    // Reset the form after submission
-    setEventName('');
-    setEventDescription('');
-    setEventAvailability('all');
-    setSelectedFaculties([]);
-    setEventDate(new Date());
-    setEventTime('');
-    setEventBanner(null);
+   
   };
 
   return (
@@ -133,7 +147,7 @@ export default function CreateEvent() {
                 <br />
                 <select
                     value={eventAvailability}
-                    onChange={(e) => setEventAvailability(e.target.value)}
+                    onChange={handleAvailabilityChange}
                     className='mt-2 p-2 w-full'
                 >
                     <option value="all">All Faculties</option>
