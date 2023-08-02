@@ -49,7 +49,7 @@ export default function EventCard(props) {
               <button className="py-2 px-4 bg-orange-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300 ml-3 my-6 mr-0 flex-shrink-0" onClick={()=>{handleClick()}}> {join ? "Joined" : "Join"} </button>
             </div>
             <div className="absolute top-4 right-4 py-1.5 px-3 bg-black rounded-lg">
-              <span className="text-md text-white text-xs">{timeLeft}</span>
+              <span className="text-md text-white text-xs">{timeLeft} more</span>
             </div>
           </div>
 

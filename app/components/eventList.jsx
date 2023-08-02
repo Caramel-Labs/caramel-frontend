@@ -1,10 +1,17 @@
 'use client'
 import Image from 'next/image'
+import { parseStringToDate, getTimeDifference } from '@/app/utility/getDaysLeft'
 import Link from 'next/link'
 
 export default function EventList(props) {
     
     const joinedEvents = props.joinedEvents
+
+    function handleDaysLeft(date, time) {
+        const parsedDate = parseStringToDate(date, time)
+        const timeLeft = getTimeDifference(parsedDate)
+        return timeLeft
+    }
    
     return(
     joinedEvents.map((event, i)=>(
@@ -23,7 +30,7 @@ export default function EventList(props) {
                     </p>
                 </div>
                 <div className="inline-flex items-center text-base font-semibold text-black">
-                    2 days <br/>
+                    {handleDaysLeft(event.date, event.time)} <br/>
                     more
                 </div>
             </div>

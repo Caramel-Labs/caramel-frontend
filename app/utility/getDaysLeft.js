@@ -35,7 +35,7 @@ function getTimeDifference(dateObject) {
 
   // If the event is over, return "Event is over!"
   if (timeDifferenceInMilliseconds < 0) {
-    return "Event is over!"
+    return "Event is over... see"
   }
 
   // Calculate the time left in hours
@@ -46,13 +46,13 @@ function getTimeDifference(dateObject) {
     const remainingMilliseconds = timeDifferenceInMilliseconds % (1000 * 60 * 60)
     const remainingMinutes = Math.floor(remainingMilliseconds / (1000 * 60))
     const remainingSeconds = Math.floor((remainingMilliseconds % (1000 * 60)) / 1000)
-    return `${differenceInHours} hours more`
+    return `${differenceInHours} hours`
   }
 
   // Convert the time difference to days
   const differenceInDays = Math.floor(timeDifferenceInMilliseconds / (1000 * 60 * 60 * 24))
 
-  return `${differenceInDays} days more`
+  return `${differenceInDays} days`
 }
 
 export { parseStringToDate, getTimeDifference}
