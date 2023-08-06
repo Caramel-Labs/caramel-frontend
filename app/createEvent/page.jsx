@@ -1,8 +1,12 @@
 "use client"
 
 import { useState } from 'react';
+import { useSession } from 'next-auth/react'
 
 export default function CreateEvent() {
+
+  const { data: session } = useSession()
+  const currentUser = session?.user
   // State variables to manage form data
   const [eventName, setEventName] = useState('');
   const [eventDescription, setEventDescription] = useState('');
@@ -63,7 +67,12 @@ export default function CreateEvent() {
     
     if( eventAvailability ==='all') {
       console.log("All faculties selected")
-      selectedFaculties.push("all");
+      selectedFaculties.push("all")
+    }
+
+    if(eventAvailability === 'facultyOnly') {
+      console.log("My faculty only selected")
+      selectedFaculties.push(currentUser.faculty)
     }
 
     const eventData = {

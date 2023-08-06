@@ -19,7 +19,7 @@ export default function Navbar() {
    const Menus = [
       {icon:homeIcon, route:"/home"},
       {icon:exploreIcon, route:"/explore"},
-      {icon:userIcon, route:`/user/${currentUser?.name}`}
+      {icon:userIcon, route:`/user/${currentUser?.username}`}
    ]
    
    const pathName = usePathname();
