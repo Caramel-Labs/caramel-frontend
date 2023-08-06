@@ -1,26 +1,24 @@
 import '@/app/globals.css'
 import { Inter } from 'next/font/google'
-import Navbar from '@/app/components/navbar'
-import AuthProvider from '@/app/utility/AuthProvider'
+import { FormProvider } from '@/app/utility/FormContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Caramel App',
-  description: 'This is the caramel app babyyy',
+  title: 'Caramel App Auth',
+  description: "let's get you started",
 }
 
-export default function BaseAppLayout({ children }) {
+export default function AuthLayout({ children }) {
   return (
     <html lang="en">
       <head>
         <link rel="icon" type="image/x-icon" href="./../favicon.png" sizes="any" />
       </head>
       <body>
-        <AuthProvider>
+       <FormProvider>
         {children}
-        <Navbar/>
-        </AuthProvider>
+       </FormProvider>
       </body>
     </html>
   )
