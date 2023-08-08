@@ -1,8 +1,8 @@
 'use client'
 
-import VerifyEmail from "@/app/components/verifyEmail"
-import VerifyOTP from "@/app/components/verifyOtp"
-import OtpVerified from "@/app/components/otpVerified"
+import VerifyEmail from "@/app/components/(auth)/verifyEmail"
+import VerifyOTP from "@/app/components/(auth)/verifyOtp"
+import OtpVerified from "@/app/components/(auth)/otpVerified"
 import { useFormState } from "@/app/utility/FormContext"
 
 function ActiveStepFormComponent() {

@@ -1,11 +1,13 @@
 'use client'
 import { useState } from 'react';
 import { useFormState } from "@/app/utility/FormContext"
+import CountdownTimer from "@/app/components/(auth)/otpCountdown"
 
 export default function VerifyOTP() {
   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']); // An array to store OTP input values
   const { onHandleNext, setFormData, formData} = useFormState();
   const [otpError , setOtpError]= useState(false)
+
 
   function handleInputChange(index, value) {
 
@@ -107,11 +109,13 @@ export default function VerifyOTP() {
                       Verify Account
                     </button>
                   </div>
-
+                 
                   <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
-                    <p>Didnt receive code?</p> <a className="flex flex-row items-center text-blue-600" href="http://" target="_blank" rel="noopener noreferrer"onClick={handleSubmit}>Resend</a>
+                   <CountdownTimer onClickHandler = {handleSubmit}/>
                   </div>
+                   
                 </div>
+
               </div>
             </form>
           </div>
