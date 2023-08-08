@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 
 export default function CountdownTimer(props) {
-  const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState(5)
+  const [minutes, setMinutes] = useState(1)
+  const [seconds, setSeconds] = useState(59)
   const {onClickHandler}  = props
 
   useEffect(() => {
