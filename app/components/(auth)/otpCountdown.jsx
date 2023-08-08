@@ -43,7 +43,7 @@ export default function CountdownTimer(props) {
           </a>
         </div>
       ) :
-      <p>{`${minutes}:${seconds.toString().padStart(2, '0')}`}</p>
+      <p>{`You can request a new code in ${minutes}:${seconds.toString().padStart(2, '0')}`}</p>
       }
     </div>
   )
