@@ -49,7 +49,7 @@ export default function VerifyEmail() {
 
             <div className="flex gap-4 justify-center mt-4">
             <button type="submit" className="h-11 px-6 inline-block bg-blue-600 font-semibold text-white rounded-md">
-                Verify Email
+                Send OTP
             </button>
             </div>
       </form>

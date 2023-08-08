@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import verifyJWT from '@/app/utility/verifyJWT.js'
+
 
 
 export default function Navbar() {

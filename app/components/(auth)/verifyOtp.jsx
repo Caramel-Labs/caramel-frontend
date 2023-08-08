@@ -5,7 +5,7 @@ import CountdownTimer from "@/app/components/(auth)/otpCountdown"
 
 export default function VerifyOTP() {
   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']); // An array to store OTP input values
-  const { onHandleNext, onHandleBack, setFormData, formData} = useFormState()
+  const { onHandleNext, onHandleBack, formData} = useFormState()
   const [otpError , setOtpError]= useState(false)
 
  // keep the cursor always in the end of the input value
@@ -144,7 +144,7 @@ export default function VerifyOTP() {
                       className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-blue-700 border-none text-white text-sm shadow-sm"
                       type="submit"
                     >
-                      Verify Account
+                      Verify Your Email
                     </button>
                   </div>
                  
