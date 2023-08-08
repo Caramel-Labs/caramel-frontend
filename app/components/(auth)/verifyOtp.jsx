@@ -5,6 +5,7 @@ import { useFormState } from "@/app/utility/FormContext"
 export default function VerifyOTP() {
   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']); // An array to store OTP input values
   const { onHandleNext, setFormData, formData} = useFormState();
+  const [otpError , setOtpError]= useState(false)
 
   function handleInputChange(index, value) {
 
@@ -12,7 +13,10 @@ export default function VerifyOTP() {
       const nextInput = document.getElementById(`otp-input-${index + 1}`);
       nextInput.focus();
       
-    }
+    } 
+
+    if(value.length > 1 ) return 
+
     const updatedValues = [...otpValues];
     updatedValues[index] = value;
     setOtpValues(updatedValues);
@@ -43,9 +47,12 @@ export default function VerifyOTP() {
 
       if (response.ok) {
         console.log("OTP verified successfully")
+        
         onHandleNext();
       } else {
         console.log("OTP verification failed")
+        setOtpError(true)
+        setOtpValues(new Array(otp.length).fill(''))
       }
     } catch (error) {
       console.error("An error occurred:", error);
@@ -77,12 +84,19 @@ export default function VerifyOTP() {
                         type="number"
                         value={value}
                         autoFocus={index === 0 ? true : false}
-                        maxLength={1}
+                        min={0}
+                        max={9}
                         onChange={(e) => handleInputChange(index, e.target.value)}
                       />
                     </div>
                   ))}
                 </div>
+               { otpError &&
+                <div className="flex flex-row text-sm font-medium text-red-600">
+                  <p>This code is incorrect</p>
+                 </div>
+               } 
+                
 
                 <div className="flex flex-col space-y-5">
                   <div>
@@ -95,7 +109,7 @@ export default function VerifyOTP() {
                   </div>
 
                   <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
-                    <p>Didnt receive code?</p> <a className="flex flex-row items-center text-blue-600" href="http://" target="_blank" rel="noopener noreferrer">Resend</a>
+                    <p>Didnt receive code?</p> <a className="flex flex-row items-center text-blue-600" href="http://" target="_blank" rel="noopener noreferrer"onClick={handleSubmit}>Resend</a>
                   </div>
                 </div>
               </div>
