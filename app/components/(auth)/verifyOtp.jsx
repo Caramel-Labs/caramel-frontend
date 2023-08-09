@@ -4,8 +4,9 @@ import { useFormState } from "@/app/utility/FormContext"
 import CountdownTimer from "@/app/components/(auth)/otpCountdown"
 
 export default function VerifyOTP() {
-  const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']); // An array to store OTP input values
   const { onHandleNext, onHandleBack, formData} = useFormState()
+
+  const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']); // An array to store OTP input values
   const [otpError , setOtpError]= useState(false)
 
  // keep the cursor always in the end of the input value
