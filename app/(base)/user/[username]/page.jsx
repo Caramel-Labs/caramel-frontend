@@ -2,7 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import getData from '@/app/utility/getData.js'
 import EventList from '@/app/components/eventList'
-import base64Converter from '@/app/utility/base64Converter'
+
+
 
 export default async function Profile({ params }) {
 
@@ -15,7 +16,7 @@ export default async function Profile({ params }) {
     // Convert the image to base64
     //const base64String = base64Converter(profilePicData)
     //const imgPath = `data:image/png;base64,${base64String}`
-    const imgPath = `/../public/${currentUser.username}.jpg`
+    const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/${currentUser.username}.jpg`
     console.log(imgPath)
    
 
