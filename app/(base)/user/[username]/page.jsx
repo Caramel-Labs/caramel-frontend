@@ -13,7 +13,7 @@ export default async function Profile({ params }) {
 
     console.log(user)
 
-    const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/${username}.jpg`
+    const imgPath = `https://res.cloudinary.com/dekv3xmjm/image/upload/caramel/ProfilePics/${username}.jpg`
     console.log(imgPath)
    
 

@@ -7,6 +7,7 @@ export default function CreateEvent() {
 
   const { data: session } = useSession()
   const currentUser = session?.user
+  console.log(currentUser)
   // State variables to manage form data
   const [eventName, setEventName] = useState('');
   const [eventDescription, setEventDescription] = useState('');
