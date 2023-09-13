@@ -1,8 +1,9 @@
 
 export default function Explore() {
     return(
-        <div>
-            <h1> Explore page </h1>
+        <div className="flex flex-col text-center mt-32">
+            <h1 className="text-4xl font-bold mb-4">Explore Page</h1>
+            <p>Coming soon!</p>
         </div>
     )
 }
