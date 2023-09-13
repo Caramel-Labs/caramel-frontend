@@ -8,15 +8,12 @@ import EventList from '@/app/components/eventList'
 export default async function Profile({ params }) {
 
     const user = await getData(`http://localhost:3001/profiles/${params.username}`)
-    const currentUser = user[0]
-    const joinedEvents = user[1]
-    //const profilePicData = user[2]
+    const {username, faculty, intake, firstName, lastName} = user
+    const joinedEvents = user.eventId
 
-    //console.log(profilePicData)
-    // Convert the image to base64
-    //const base64String = base64Converter(profilePicData)
-    //const imgPath = `data:image/png;base64,${base64String}`
-    const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/${currentUser.username}.jpg`
+    console.log(user)
+
+    const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/${username}.jpg`
     console.log(imgPath)
    
 
@@ -39,16 +36,16 @@ export default async function Profile({ params }) {
                     <Image className="w-32 h-32 rounded-full mx-auto border-black border-1 object-cover" src={imgPath} alt="profile-picture" width="128" height="128" />
 
                     <div className="text- mt-5">
-                        <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{currentUser.firstName} {user.lastName}</h2>
+                        <h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">{firstName} {lastName}</h2>
 
-                        <p>@{currentUser.username}</p>
+                        <p>@{username}</p>
                     </div>
 
                     <p className="mt-2 text-sm text-black">Lorem ipsum dolor sit amet, consecte adipisicing elit. Voluptatibus quia. Maiores et perferendis eaque.</p>
 
                     <p className="mt-2 text-sm text-black">
-                        Faculty of {currentUser.faculty}<br />
-                        Intake {currentUser.intake}
+                        Faculty of {faculty}<br />
+                        Intake {intake}
                     </p>
 
                 </div>
