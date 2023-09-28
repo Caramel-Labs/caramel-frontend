@@ -27,7 +27,7 @@ export default function SignUp() {
     return (
         <div >
           <h1 className="text-center text-2xl font-semibold py-4">
-            Sign Up Form
+            Join Caramel
           </h1>
           <ActiveStepFormComponent />
         </div>
