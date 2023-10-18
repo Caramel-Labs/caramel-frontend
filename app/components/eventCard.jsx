@@ -3,11 +3,12 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { parseStringToDate, getTimeDifference } from '@/app/utility/getDaysLeft'
 import { useSession } from 'next-auth/react'
+import { eventCardFormat } from '@/app/utility/formatDate'
 
 
 export default function EventCard(props) {
 
-    const {i, _id, name, society, date, time} = props.event
+    const {i, _id, name, society, date, venue} = props.event
     // const [join, setJoin] = useState(false)
 
     const { data: session } = useSession()
@@ -16,8 +17,9 @@ export default function EventCard(props) {
 
     const imgPath = `https://res.cloudinary.com/dekv3xmjm/image/upload/caramel/events/${_id}.jpg`
     const fallBackPath = '/../public/event-bg.jpg'
-    const parsedDate = parseStringToDate(date, time)
-    const timeLeft = getTimeDifference(parsedDate)
+    const formattedDate = eventCardFormat(date)
+    // const parsedDate = parseStringToDate(date, time)
+    // const timeLeft = getTimeDifference(parsedDate)
 
     // posting data of joined events to the API
     // async function handleClick() {
@@ -53,10 +55,15 @@ export default function EventCard(props) {
                 <h1 className="text-gray-700 font-bold text-xl hover:text-gray-900 hover:cursor-pointer mr-50 ml-50 my-1 line-clamp-1">{name}</h1>
                 <p className="text-gray-700 tracking-wide text-sm">{society}</p>
               </div>
+
+              <div>
+                <p> where {venue}</p>
+                <p> when {formattedDate}</p>
+              </div>
             </div>
-            <div className="absolute top-4 right-4 py-1.5 px-3 bg-black rounded-lg">
+            {/* <div className="absolute top-4 right-4 py-1.5 px-3 bg-black rounded-lg">
               <span className="text-md text-white text-xs">{timeLeft} more</span>
-            </div>
+            </div> */}
           </div>
 
     )

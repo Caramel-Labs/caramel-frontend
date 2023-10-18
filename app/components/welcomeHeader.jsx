@@ -1,6 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function WelcomeHeader() {
     const { data: session } = useSession()
@@ -15,7 +16,10 @@ export default function WelcomeHeader() {
        <div>
          <Image width= "30" height="30" src={imgPath}alt="dp"></Image>
          <h1>Welcome back <br/> {firstName}</h1>
-         <button> {notifPath}</button>
+         <Link href="/notifications">
+          <button> {notifPath}</button> 
+         </Link>
+         
        </div> 
        
     );
