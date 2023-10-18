@@ -14,7 +14,9 @@ export default function WelcomeHeader() {
 
     return (
        <div>
+        <Link href = {`user/${username}`}>
          <Image width= "30" height="30" src={imgPath}alt="dp"></Image>
+        </Link> 
          <h1>Welcome back <br/> {firstName}</h1>
          <Link href="/notifications">
           <button> {notifPath}</button> 

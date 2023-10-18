@@ -19,7 +19,12 @@ export default async function Event({ params }) {
             <Image height="400" width= "800" src={imgPath} alt='hero-image' ></Image>
             <h1>{name}</h1>
             {/* already registered user avatars */}
-            <div>
+           
+            <div class="flex -space-x-4">
+                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/app/public/kalana2001.jpg" alt=""/>
+                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/app/public/ravindu2001.jpg" alt=""/>
+                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/app/public/senindu2005.jpg" alt=""/>
+                
                 <p> {participants.length} already registered</p>
             </div>
 

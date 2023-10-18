@@ -1,5 +1,5 @@
 import EventCard from '@/app/components/eventCard.jsx'
-import getToday from '@/app/utility/getToday.js'
+import getToday from '@/app/utility/formatDate.js'
 import Link from 'next/link'
 import WelcomeHeader from '@/app/components/welcomeHeader'
 
@@ -15,7 +15,7 @@ export default async function Home() {
   });
 
   const response = await events.json()
-  const today = getToday()
+  // const today = getToday()
  // console.log(today)
 
   return (
