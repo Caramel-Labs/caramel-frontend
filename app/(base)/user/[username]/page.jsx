@@ -52,7 +52,7 @@ export default async function Profile({ params }) {
 
                 {/* Event List */}
                 <div className="">
-                    <h2>Events</h2><br />
+                    <h2> Registered Events</h2><br />
                     <ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
                         <EventList joinedEvents={joinedEvents} />
                     </ul>
