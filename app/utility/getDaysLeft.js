@@ -35,7 +35,7 @@ function getTimeDifference(dateObject) {
 
   // If the event is over, return "Event is over!"
   if (timeDifferenceInMilliseconds < 0) {
-    return "Event is over... see"
+    return "Event is over"
   }
 
   // Calculate the time left in hours
