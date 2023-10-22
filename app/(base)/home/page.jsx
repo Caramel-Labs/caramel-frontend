@@ -19,11 +19,11 @@ export default async function Home() {
  // console.log(today)
 
   return (
-  <div className='p-5'>
+  <div className='p-5 bg-neutral-800' >
     
     <WelcomeHeader />
     
-    <h1 className="text-2xl font-bold text-gray-900"> Happening Soon</h1>
+    <h1 className="text-2xl font-bold text-white"> Happening Soon</h1>
         {response.map((event, i)=>(
           <Link key={i} href={`event/${event._id}`}>
           <EventCard key={i} event ={event} />
