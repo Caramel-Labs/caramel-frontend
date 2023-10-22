@@ -42,7 +42,7 @@ export default function WelcomeHeader() {
   );
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between items-center">
       <div className="flex gap-x-4">
         <Link href={`user/${username}`}>
           <Image
