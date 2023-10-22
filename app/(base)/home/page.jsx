@@ -19,7 +19,7 @@ export default async function Home() {
  // console.log(today)
 
   return (
-  <div className='p-5 bg-neutral-800' >
+  <div className='p-5 bg-zinc-900' >
     
     <WelcomeHeader />
     
