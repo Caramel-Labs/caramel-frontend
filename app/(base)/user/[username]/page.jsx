@@ -58,7 +58,7 @@ export default async function Profile({ params }) {
 								<p className="text-sm text-white">{lastName}</p>
 							</div>
 
-							<div className="bg-white p-2 text-xs rounded-lg text-white"><p>@{username}</p></div>
+							<div className="bg-white p-2 text-xs rounded-lg text-black"><p>@{username}</p></div>
 						</div>
 					</div>
 
