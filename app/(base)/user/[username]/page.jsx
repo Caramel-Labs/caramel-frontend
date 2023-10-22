@@ -16,7 +16,7 @@ export default async function Profile({ params }) {
 	console.log(imgPath);
 
 	return (
-		<>
+		<div className="p-4 bg-zinc-900">
 			{/* Header for logout button */}
 			<div className="flex justify-end">
 				<Link href="http://localhost:3000/api/auth/signout">
@@ -40,45 +40,68 @@ export default async function Profile({ params }) {
 				</Link>
 			</div>
 
-			<div className="grid h-screen place-items-center">
-				<div className="p-5 text-center text-black max-w-sm">
-					<Image
-						className="w-32 h-32 rounded-full mx-auto border-black border-1 object-cover"
-						src={imgPath}
-						alt="profile-picture"
-						width="128"
-						height="128"
-					/>
+			<div className="grid h-screen">
+				<div className="p-5 text- text-black max-w-sm ">
+					<div className="flex justify-center">
+						<Image
+							className="w-32 h-32 rounded-full mx-auto border-black border-1 object-cover"
+							src={imgPath}
+							alt="profile-picture"
+							width="128"
+							height="128"
+						/>
 
-					<div className="text- mt-5">
-						<h2 className="font-medium leading-none text-black hover:text-indigo-600 transition duration-500 ease-in-out">
-							{firstName} {lastName}
-						</h2>
+						<div className="text-mt-5">
+							<div>
+								<p className="text-4xl text-white">{firstName}</p>
+								
+								<p className="text-sm text-white">{lastName}</p>
+							</div>
 
-						<p>@{username}</p>
+							<div className="bg-white p-2 text-xs rounded-lg text-white"><p>@{username}</p></div>
+						</div>
 					</div>
 
-					<p className="mt-2 text-sm text-black">
+					{/* Bio (not needed) */}
+
+					{/* <p className="mt-2 text-sm text-black">
 						Lorem ipsum dolor sit amet, consecte adipisicing elit. Voluptatibus
 						quia. Maiores et perferendis eaque.
-					</p>
+					</p> */}
 
-					<p className="mt-2 text-sm text-black">
+					{/* <p className="mt-2 text-sm text-black">
 						Faculty of {faculty}
 						<br />
 						Intake {intake}
-					</p>
+					</p> */}
+					
+					<div className="flex justify-center gap-x-8 mt-12 text-center">
+						<div className="">
+							<p className="text-xs text-white">Intake</p>
+							<p className="text-base font-bold text-white">{intake}</p>
+						</div>
+
+						<div>
+							<p className="text-xs text-white">Faculty</p>
+							<p className="text-base font-bold text-white">FOC</p>
+						</div>
+
+						<div>
+							<p className="text-xs text-white">Degree</p>
+							<p className="text-base font-bold text-white">Software Eng.</p>
+						</div>
+					</div>
 				</div>
 
 				{/* Event List */}
 				<div className="">
-					<h2> Registered Events</h2>
+					<h2 className="text-white"> Registered Events</h2>
 					<br />
 					<ul className="max-w-md divide-y divide-gray-200 dark:divide-gray-700">
 						<EventList joinedEvents={joinedEvents} />
 					</ul>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }
