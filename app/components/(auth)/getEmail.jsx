@@ -1,12 +1,13 @@
 'use client'
 import { useFormState } from "@/app/utility/FormContext"
-import { useState } from 'react';
+import { useState } from 'react'
 
-export default function VerifyEmail() {
+export default function GetEmail() {
 
 
     const [email, setEmail] = useState("");
-    const { onHandleNext, setFormData } = useFormState();
+    const { onHandleNext, setFormData, formData } = useFormState();
+    // console.log(formData, "form data")
 
    async function handleSubmit(e) {
         e.preventDefault();
