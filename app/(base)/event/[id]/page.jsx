@@ -7,58 +7,90 @@ import EventActionButton from '@/app/components/eventActionButton'
 export default async function Event({ params }) {
 
     const imgPath = `https://res.cloudinary.com/dekv3xmjm/image/upload/caramel/events/${params.id}.jpg`
-    const locationPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 
-    const calendarPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"  fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-   
+    const locationPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+    const calendarPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+
 
     const event = await getData(`http://localhost:3001/events/${params.id}`)
     console.log(event)
-    const {_id, name, society, date, time, description, venue, tickets, participants} = event
+    const { _id, name, society, date, time, description, venue, tickets, participants } = event
 
     const formattedDate = eventPageFormat(date)
-    
+
 
     return (
-        <div>
-            <Image height="400" width= "800" src={imgPath} alt='hero-image' ></Image>
-            <h1>{name}</h1>
+        <div className='bg-zinc-900 h-screen'>
+            <Image height="400" width="800" src={imgPath} alt='hero-image' ></Image>
+            <h1 className='text-white ml-4 mt-4 text-xl'>{name}</h1>
             {/* already registered user avatars */}
-           
-            <div class="flex -space-x-4">
-                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src=".../public/kalana2001.jpg" alt=""/>
-                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/ravindu2001.jpg" alt=""/>
-                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/senindu2005.jpg" alt=""/>
-                
-                <p> {participants.length} already registered</p>
+
+            {/* <div class="flex -space-x-4 mt-4">
+                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src=".../public/kalana2001.jpg" alt="" />
+                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/ravindu2001.jpg" alt="" />
+                <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/senindu2005.jpg" alt="" />
+
+                <div className='ml-40'><p className='text-white mt-4'> {participants.length} already registered</p></div>
+            </div> */}
+            <div className='mt-2'>
+                <div class="flex ">
+                    <div class="w-1/4 p-4  flex items-center justify-center ">
+                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src=".../public/kalana2001.jpg" alt="" />
+                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/ravindu2001.jpg" alt="" />
+                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/senindu2005.jpg" alt="" />
+                    </div>
+                    <div class="w-3/4 pt-4 ">
+                        <p className='text-white mt-4'> {participants.length} already registered</p>
+                    </div>
+                </div>
             </div>
 
             {/* event description */}
-            <p>{description}</p>
+            <p className='text-white text-xs ml-1 mt-8'>{description}</p>
 
-        {/* event details */}
-            <div>
-               <div>
-                {calendarPath}
-                <p>{formattedDate}</p>
-                <p>{time}</p>
-               </div> 
-               
-               <div>
-                {locationPath}
-                <p>{venue}</p>
-               </div>
-               
-               <div>
-               <Image height="100" width="100" src={""} alt='society-image' ></Image>
-                <p>organized by </p>
-                <p> {society}</p>
-               </div>
+            {/* event details */}
+            <div className=''>
+                <div>
+                    <div class="flex mt-6">
+                        <div class="w-1/4 p-4 flex items-center justify-center ml-10">
+                            {calendarPath}
+                        </div>
+                        <div class="w-3/4 p-4 pl-0  ">
+                            <p className='text-white text-sm'>{formattedDate}</p>
+                            <p className='text-white text-xs'>{time}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex mt-6">
+                        <div class="w-1/4 p-4  flex items-center justify-center ml-10">
+                            {locationPath}
+                        </div>
+                        <div class="w-3/4 p-4 ">
+                            <p className='ml-5 text-white'>{venue}</p>
+                        </div>
+                    </div>
+                </div>
+
                 
-            </div>
+                    {/* <Image height="100" width="100" src={""} alt='society-image' ></Image>
+                    <p className='ml-20 text-white'>organized by </p>
+                    <p className='ml-20 text-white'> {society}</p> */}
+                    <div class="flex mt-6">
+                        <div class="w-1/4 p-4  flex items-center justify-center ml-10">
+                            <Image height="100" width="100" src={""} alt='society-image' ></Image>
+                        </div>
+                        <div class="w-3/4 p-4 pl-0 ">
+                            <p className='text-white text-xs'>organized by </p>
+                            <p className='text-white text-sm'> {society}</p>
+                        </div>
+                    </div>
 
-            <EventActionButton id={_id} tickets={tickets}/>
-        </div>
-    );
+                </div>
+
+                <EventActionButton id={_id} tickets={tickets} />
+            </div>
+            );
 }
 
 
