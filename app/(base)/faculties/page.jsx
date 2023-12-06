@@ -9,7 +9,7 @@ export default async function FacultyFeed(){
     console.log(faculties)
         return(
             <div>
-                <h1 className="text-center font-bold"> Faculties</h1>
+                <h1 className="text-center font-bold mt-4"> Faculties</h1>
     
                  {/* the search box */}
                  <div className="pt-2 relative mx-auto text-gray-600 flex flex-col mt-4">
