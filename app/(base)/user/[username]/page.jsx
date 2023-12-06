@@ -12,7 +12,7 @@ export default async function Profile({ params }) {
       'Content-Type': 'application/json'
     },
   });
-   const user = await response.json()
+    const user = await response.json()
 	const { username, faculty, intake, firstName, lastName } = user;
 	const joinedEvents = user.eventId;
 
