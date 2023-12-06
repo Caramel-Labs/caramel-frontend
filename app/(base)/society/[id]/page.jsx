@@ -32,9 +32,12 @@ export default async function Society({params}){
                 <p> {volunteers.length} followers</p>
             </div>
 
+            <button>Follow</button>
+
             {/* event description */}
             <p>{description}</p>
         
+        <h2> Events </h2>
         {/*event list*/}
         {events.map((event, i)=>(
           <Link key={i} href={`event/${event._id}`}>
@@ -44,6 +47,7 @@ export default async function Society({params}){
          ))}
         {/* Manage society */}
         <div>
+          <h2> Manage this society</h2>
            <p> If you are a public team member apply as admin</p>
             <Link href={`/society/${params.id}/manage`}>
                 <button>Apply as admin</button>

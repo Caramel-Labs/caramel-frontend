@@ -1,7 +1,7 @@
 import EventCard from '@/app/components/eventCard.jsx'
-import getToday from '@/app/utility/formatDate.js'
 import Link from 'next/link'
 import WelcomeHeader from '@/app/components/welcomeHeader'
+import HomeCarousel from '@/app/components/homeCarousel'
 
 export default async function Home() {
   
@@ -22,7 +22,13 @@ export default async function Home() {
   <div className='p-5 bg-zinc-900' >
     
     <WelcomeHeader />
-    
+
+      <div>
+        <h1 className="text-2xl font-bold text-white"> You might Like</h1>
+        <HomeCarousel />
+      </div>
+
+    <div>
     <h1 className="text-2xl font-bold text-white"> Happening Soon</h1>
         {response.map((event, i)=>(
           <Link key={i} href={`event/${event._id}`}>
@@ -30,7 +36,7 @@ export default async function Home() {
           </Link>
           
          ))}
-          
+    </div>      
 
   </div>
   )

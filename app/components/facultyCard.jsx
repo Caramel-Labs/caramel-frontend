@@ -2,8 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function FacultyCard(props){
-
-  const {_id, facultyName , description} = props.faculty
+""
+  const { _id, facultyName , description} = props.faculty
+  console.log(props.faculty)
 
     const imgPath = ""
     return(

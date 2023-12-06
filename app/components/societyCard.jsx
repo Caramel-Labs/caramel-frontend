@@ -10,7 +10,7 @@ export default function SocietyCard(props){
         <div className="relative flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
             <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                 <img
-                    src=""
+                    src={imgPath}
                     alt="image"
                     className="h-full w-full object-cover"
                 />
