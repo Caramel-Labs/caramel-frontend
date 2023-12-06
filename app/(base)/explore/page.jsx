@@ -42,7 +42,7 @@ export default function Explore() {
             {/* the cards */}
             {items.map((item, i) => (
                 <Link key={i} href={item.route}>
-                <ExploreCard key={i} name = {item} />
+                <ExploreCard key={i} name = {item.name} />
                 </Link>
                 ))
             }   

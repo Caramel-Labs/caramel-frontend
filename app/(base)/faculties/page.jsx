@@ -6,7 +6,7 @@ import FacultyCard from "@/app/components/facultyCard"
 export default async function FacultyFeed(){
    
     const faculties= await getData("http://localhost:3001/faculty/all")
-    console.log(    faculties)
+    console.log(faculties)
         return(
             <div>
                 <h1> Faculties</h1>
