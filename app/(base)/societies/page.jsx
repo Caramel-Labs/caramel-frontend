@@ -8,10 +8,10 @@ export default async function SocietyFeed(){
     
         return(
             <div>
-                <h1> Societies</h1>
+                <h1 className="text-center font-bold" >Societies</h1>
     
                  {/* the search box */}
-                 <div className="pt-2 relative mx-auto text-gray-600 flex flex-col">
+                 <div className="pt-2 relative mx-auto text-gray-600 flex flex-col mt-4">
                     <input className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                     type="search" name="search" placeholder="Search"/>
                     <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
