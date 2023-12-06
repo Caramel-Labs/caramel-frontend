@@ -9,13 +9,13 @@ export default function Explore() {
     ]
     return(
         
-        <div className="bg-zinc-900 h-screen ">
+        <div className="bg-zinc-950 h-screen ">
             
             {/* the search box */}
             <div className="pt-2 relative mx-auto text-gray-600 flex flex-col ">
-                <input className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                type="search" name="search" placeholder="Search"/>
-                <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
+                <input className="border-2 border-zinc-900 bg-zinc-900 h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none mt-3 mx-4 "
+                type="search" name="search" placeholder="Search for societies, events and more..."/>
+                <button type="submit" className="absolute right-0 top-0 mt-9 mr-8">
                 <svg
                     className="text-gray-600 h-4 w-4 fill-current"
                     width="512"
@@ -37,7 +37,7 @@ export default function Explore() {
             </div>
 
             {/* heading */}
-            <h1 className="text-2xl font-bold mb-4 mt-6 text-white">Explore Your University</h1>
+            <h1 className="text-xl font-bold mb-4 mt-6 text-white ml-4">Explore Your University</h1>
 
             {/* the cards */}
             <div className="mt-9">

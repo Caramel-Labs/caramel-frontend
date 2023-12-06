@@ -8,15 +8,15 @@ export default function SocietyCard(props) {
     return (
         <div key={i}>
             
-            <div className="relative flex w-full max-w-[48rem] flex bg-white bg-clip-border text-gray-700 shadow-md mt-9 rounded-lg bg-zinc-900">
-  <div className="relative m-0 w-2/5 shrink-0 overflow-hidden bg-white bg-clip-border text-gray-700 flex items-center rounded-lg bg-zinc-900">
+            <div className="relative flex w-full max-w-[48rem] flex bg-white bg-clip-border text-gray-700 shadow-md mt-9 rounded-lg bg-zinc-950">
+  <div className="relative m-0 w-2/5 shrink-0 overflow-hidden bg-white bg-clip-border text-gray-700 flex items-center rounded-lg bg-zinc-950">
     <img
       src={imgPath}
       alt="image"
       className="h-98 w-98 object-cover rounded-lg"
     />
   </div>
-  <div className="p-6 bg-zinc-900 rounded-lg">
+  <div className="p-6 bg-zinc-950 rounded-lg">
     <h4 className="mb-2 font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased text-base font-bold text-white">
       {societyName}
     </h4>
