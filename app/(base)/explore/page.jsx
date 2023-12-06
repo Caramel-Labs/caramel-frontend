@@ -9,10 +9,10 @@ export default function Explore() {
     ]
     return(
         
-        <div className="">
+        <div className="bg-zinc-900 h-screen ">
             
             {/* the search box */}
-            <div className="pt-2 relative mx-auto text-gray-600 flex flex-col">
+            <div className="pt-2 relative mx-auto text-gray-600 flex flex-col ">
                 <input className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
                 type="search" name="search" placeholder="Search"/>
                 <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
@@ -37,16 +37,17 @@ export default function Explore() {
             </div>
 
             {/* heading */}
-            <h1 className="text-2xl font-bold mb-4">Explore Your University</h1>
+            <h1 className="text-2xl font-bold mb-4 mt-6 text-white">Explore Your University</h1>
 
             {/* the cards */}
+            <div className="mt-9">
             {items.map((item, i) => (
                 <Link key={i} href={item.route}>
                 <ExploreCard key={i} name = {item.name} />
                 </Link>
                 ))
             }   
-           
+           </div>
         
         </div>
 
