@@ -72,25 +72,28 @@ export default async function Event({ params }) {
                     </div>
                 </div>
 
-                
-                    {/* <Image height="100" width="100" src={""} alt='society-image' ></Image>
+
+                {/* <Image height="100" width="100" src={""} alt='society-image' ></Image>
                     <p className='ml-20 text-white'>organized by </p>
                     <p className='ml-20 text-white'> {society}</p> */}
-                    <div class="flex mt-6">
-                        <div class="w-1/4 p-4  flex items-center justify-center ml-10">
-                            <Image height="100" width="100" src={""} alt='society-image' ></Image>
-                        </div>
-                        <div class="w-3/4 p-4 pl-0 ">
-                            <p className='text-white text-xs'>organized by </p>
-                            <p className='text-white text-sm'> {society}</p>
-                        </div>
+                <div class="flex mt-6">
+                    <div class="w-1/4 p-4  flex items-center justify-center ml-10 rounded-full bg-white w-12 h-12 border-solid ">
+                        <Image height="100" width="100" src={""} alt='society-image' ></Image>
                     </div>
-
+                    <div class="w-3/4 p-4 ml-2">
+                        <p className='text-white text-xs'>organized by </p>
+                        <p className='text-white text-sm'> {society}</p>
+                    </div>
                 </div>
 
-                <EventActionButton id={_id} tickets={tickets} />
+            </div >
+            <div className='grid justify-items-center mt-4'>
+                    <EventActionButton id={_id} tickets={tickets} />
             </div>
-            );
+
+
+        </div>
+    );
 }
 
 
