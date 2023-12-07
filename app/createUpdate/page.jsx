@@ -1,10 +1,13 @@
 'use client'
 import { useState } from 'react';
+import { useRouter } from "next/navigation"
 
 export default function CreateUpdate(props) {
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
   const [eventDescription, setEventDescription] = useState('');
+
+  const router = useRouter();
 
   // Helper function to handle file input change (event banner)
   const handleFileChange = async (changeEvent) => {
