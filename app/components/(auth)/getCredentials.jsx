@@ -52,82 +52,87 @@ export default function GetCredentials() {
       
 
     return(
-        <form method="post" onSubmit={handleSubmit}> 
-        <div className="bg-grey-lighter min-h-screen flex flex-col">
-            <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                    <h1 className="mb-8 text-3xl text-center">Get Started</h1>
-    
-                    <input
-                        type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="first_name"
-                        value={userData.first_name}
-                        onChange={(e) => handleInputChange(e)}
-                        placeholder="Enter First Name"
-                        required
-                    />
-    
-                    <input
-                        type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="last_name"
-                        value={userData.last_name}
-                        onChange={(e) => handleInputChange(e)}
-                        placeholder="Enter Last Name"
-                        required
-                    />
-    
-                    <input
-                        type="text"
-                        className="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="username"
-                        value={userData.username}
-                        onChange={(e) => handleInputChange(e)}
-                        placeholder="Enter Username"
-                        required
-                    />
-    
-                    <input
-                        type="password"
-                        className={`block border border-grey-light w-full p-3 rounded mb-4 ${passwordError ? 'border-red-500' : ''}`}
-                        name="password"
-                        minLength={8}
-                        value={userData.password}
-                        onChange={(e)=> handleInputChange(e)}
-                        placeholder="Enter Password"
-                        required
-                    />
-    
-                    <input
-                        type="password"
-                        className={`block border border-grey-light w-full p-3 rounded mb-4 ${passwordError ? 'border-red-500' : ''}`}
-                        name="confirm_password"
-                        minLength={8}
-                        value={userData.confirm_password}
-                        onChange={(e)=>handleInputChange(e)}
-                        placeholder="Confirm Password"
-                        required
-                    />
-                    {passwordError && <p className="text-red-500 text-xs italic">Passwords do not match.</p>}
-    
-                   
-                </div>
-    
-                <div className="text-grey-dark mt-6">
-                    Already have an account? 
-                    <Link className="no-underline border-b border-blue text-blue-400" href="/auth/login">
-                        Sign in
-                    </Link>
-                </div>
-
-                <button
-                        type='submit'
-                        className="w-full text-center py-3 rounded bg-blue-700 text-black hover:bg-green-dark focus:outline-none my-1"
-                    >Next</button>
-            </div>
-        </div>
-    </form>
+      <form method="post" onSubmit={handleSubmit}> 
+      <div className="bg-grey-lighter min-h-screen flex flex-col bg-zinc-950">
+          <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+              <div className="bg-zinc-950 px-6 py-8 rounded shadow-md text-white w-full">
+                  <h1 className="mb-8 text-center text-2xl">Get Started</h1>
+                  <p className='text-xs text-center mt-9'>First things first, let's get some basics out of the way.</p>
+  
+                  <div className='mt-14'>
+                      <input
+                          type="text"
+                          className="block border border-zinc-900 w-full p-3 rounded-lg mb-4 bg-zinc-900 text-xs text-white"
+                          name="first_name"
+                          value={userData.first_name}
+                          onChange={(e) => handleInputChange(e)}
+                          placeholder="Enter First Name"
+                          required
+                      />
+  
+                      <input
+                          type="text"
+                          className="block border border-zinc-900 w-full p-3 rounded-lg mb-4 bg-zinc-900 text-xs text-white"
+                          name="last_name"
+                          value={userData.last_name}
+                          onChange={(e) => handleInputChange(e)}
+                          placeholder="Enter Last Name"
+                          required
+                      />
+  
+                      <input
+                          type="text"
+                          className="block border border-zinc-900 w-full p-3 rounded-lg mb-4 bg-zinc-900 text-xs text-white"
+                          name="username"
+                          value={userData.username}
+                          onChange={(e) => handleInputChange(e)}
+                          placeholder="Enter Username"
+                          required
+                      />
+  
+                      <input
+                          type="password"
+                          className={`block border border-zinc-900 w-full p-3 rounded-lg mb-4 bg-zinc-900 text-xs ${passwordError ? 'border-red-500' : ''} text-white`}
+                          name="password"
+                          minLength={8}
+                          value={userData.password}
+                          onChange={(e)=> handleInputChange(e)}
+                          placeholder="Enter Password"
+                          required
+                      />
+  
+                      <input
+                          type="password"
+                          className={`block border border-zinc-900 w-full p-3 rounded-lg mb-4 bg-zinc-900 text-xs ${passwordError ? 'border-red-500' : ''} text-white`}
+                          name="confirm_password"
+                          minLength={8}
+                          value={userData.confirm_password}
+                          onChange={(e)=>handleInputChange(e)}
+                          placeholder="Confirm Password"
+                          required
+                      />
+                  </div>
+                  
+                  {passwordError && <p className="text-red-500 text-xs italic">Passwords do not match.</p>}
+  
+              </div>
+  
+              <div className="text-grey-dark mt-6 text-xs">
+                  Already have an account? 
+                  <Link className="no-underline border-b border-blue text-blue-400 ml-4" href="/auth/login">
+                      Sign in
+                  </Link>
+              </div>
+  
+              <button
+                  type='submit'
+                  className="w-full text-center py-3 rounded bg-blue-700 text-black hover:bg-green-dark focus:outline-none my-1 mt-14 h-12 w-72 text-xs rounded-lg text-white"
+              >
+                  Next
+              </button>
+          </div>
+      </div>
+  </form>
     
     )
 }
