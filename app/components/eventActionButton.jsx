@@ -1,6 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 
 export default function EventActionButton(props) {
@@ -8,8 +9,9 @@ export default function EventActionButton(props) {
     const [join, setJoin] = useState(false)
     const { data: session } = useSession()
     const currentUser = session?.user
+    const isAdmin = currentUser?.isAdmin
     // console.log(currentUser,"current user")
-
+    const router = useRouter()
      // handle event registration
      async function handleClick() {
       
@@ -35,14 +37,33 @@ export default function EventActionButton(props) {
       }
 
     }
+    async function handleUpdate() {
+      
+      router.push('/createUpdate')
+
+    }
 
     return (
-        <button
+     <div>
+       <button
           onClick={handleClick}
           className='bg-blue-600  rounded-lg h-12 w-80 mt-3 text-center text-xs text-white '
         >
           {`${join? "Registered":"Register Now"}`}
         </button>
+
+        {
+          isAdmin && (
+            <button
+              onClick={handleClick}
+              className='bg-red-500 p-4 rounded-lg h-12 w-80 mt-3 '
+            >
+              Add Event Update
+            </button>
+          )
+        }
+     </div> 
+       
     );
 }
 
