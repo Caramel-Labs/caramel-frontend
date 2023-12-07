@@ -39,13 +39,8 @@ export default function OtpVerified() {
             <h1 className="text-2xl font-semibold text-white">OTP Verified</h1>
             <p className="text-gray-500 text-center mt-4 text-xs">Your email has been verified successfully</p>
             <button 
-<<<<<<< HEAD
              className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-blue-700 border-none text-white text-sm shadow-sm"
              onClick={onHandleNext}>
-=======
-             className="flex flex-row items-center justify-center text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-11 h-12 w-80 rounded-lg text-xs"
-             onClick={handleCreateAccount}>
->>>>>>> 208c70a8bceb9f36f59d187957faf907cf4f52e3
              Continue
             </button>
         </div>
