@@ -3,6 +3,7 @@ import Image from 'next/image'
 import getData from '@/app/utility/getData.js'
 import { eventPageFormat } from '@/app/utility/formatDate'
 import EventActionButton from '@/app/components/eventActionButton'
+import LikeButton from '@/app/components/likeButton'
 
 export default async function Event({ params }) {
 
@@ -41,6 +42,7 @@ export default async function Event({ params }) {
                     <div class="w-3/4 pt-4 ">
                         <p className='text-white mt-4'> {participants.length} already registered</p>
                     </div>
+                    <LikeButton/>
                 </div>
             </div>
 
