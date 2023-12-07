@@ -39,7 +39,7 @@ export default function WelcomeHeader() {
       />
     </svg>
   );
-  
+
 
   return (
     <div className="flex justify-between items-center">
@@ -50,12 +50,14 @@ export default function WelcomeHeader() {
             height="48"
             src={imgPath}
             alt="dp"
-            className="rounded-full w-12 h-12"
+            className="rounded-full object-cover w-12 h-12"
           ></Image>
         </Link>
-        <h1 className="text-white text-[10px] ">
-          Welcome back <br /> <p className="text-[16px] font-bold">{firstName}</p>
-        </h1>
+        <div className="flex items-center">
+          <h1 className="text-white text-[10px]">
+            Welcome back <br /> <p className="text-[16px] font-bold">{firstName}</p>
+          </h1>
+        </div>
       </div>
       <Link href="/notifications">
         <button> {notifPath}</button>
