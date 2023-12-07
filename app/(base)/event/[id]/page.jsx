@@ -14,10 +14,16 @@ export default async function Event({ params }) {
 
     const event = await getData(`http://localhost:3001/events/${params.id}`)
     console.log(event)
-    const { _id, name, society, date, time, description, venue, tickets, participants } = event
+    const { _id, name, society, date, time, description, venue, tickets, participants, likes } = event
 
     const formattedDate = eventPageFormat(date)
 
+    const props = {
+        eventId: params.id,
+        initialLikes: likes
+      };
+
+      console.log(props)
 
     return (
         <div className='bg-zinc-900 h-screen'>
@@ -42,7 +48,7 @@ export default async function Event({ params }) {
                     <div class="w-3/4 pt-4 ">
                         <p className='text-white mt-4'> {participants.length} already registered</p>
                     </div>
-                    <LikeButton/>
+                    <LikeButton props={props}/>
                 </div>
             </div>
 
