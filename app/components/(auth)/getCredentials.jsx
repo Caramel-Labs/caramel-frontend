@@ -117,7 +117,7 @@ export default function GetCredentials() {
   
               </div>
   
-              <div className="text-grey-dark mt-6 text-xs">
+              <div className="text-grey-dark mt-6 text-xs text-white">
                   Already have an account? 
                   <Link className="no-underline border-b border-blue text-blue-400 ml-4" href="/auth/login">
                       Sign in
