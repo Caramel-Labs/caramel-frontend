@@ -184,20 +184,20 @@ export default function CreateEvent() {
   
 
   return (
-    <div className='p-5'>
-        <h2 className='text-2xl font-bold pb-3'>CREATE EVENT</h2>
+    <div className='p-5 bg-zinc-950'>
+        <h2 className='text-2xl font-bold pb-3 text-white mt-6'>CREATE EVENT</h2>
 
         <form onSubmit={handleSubmit}>
 
             {/* Event Name ===================================================================================================== */}
             <div>
-                <label>Event Name:</label>
+                <label className='text-white mt-6'>Event Name:</label>
                 <br />
                 <input
                     type="text"
                     value={eventName}
                     onChange={(e) => setEventName(e.target.value)}
-                    className='mt-2 border-2 p-2 w-full'
+                    className='mt-2 border-2 p-2 w-full rounded-lg text-xs bg-zinc-900 text-gray-600 border-zinc-900'
                     placeholder='Keep your event name as short as possible'
                     required
                 />
@@ -206,12 +206,12 @@ export default function CreateEvent() {
 
             {/* Event Description ============================================================================================== */}
             <div>
-                <label>Event Description:</label>
+                <label className='text-white mt-6'>Event Description:</label>
                 <br />
                 <textarea
                     value={eventDescription}
                     onChange={(e) => setEventDescription(e.target.value)}
-                    className='mt-2 border-2 p-2 w-full'
+                    className='mt-2 border-2 p-2 w-full  rounded-lg text-xs  bg-zinc-900 text-gray-600 border-zinc-900'
                     placeholder='What is your event all about?'
                     required
                 />
@@ -220,12 +220,12 @@ export default function CreateEvent() {
 
             {/* Event Availability ============================================================================================= */}
             <div>
-                <label>Event Availability:</label>
+                <label className='text-white mt-6'>Event Availability:</label>
                 <br />
                 <select
                     value={eventAvailability}
                     onChange={handleAvailabilityChange}
-                    className='mt-2 p-2 w-full'
+                    className='mt-2 p-2 w-full  rounded-lg text-xs  bg-zinc-900 text-gray-600 border-zinc-900'
                 >
                     <option value="all">All Faculties</option>
                     <option value="facultyOnly">My Faculty Only</option>
@@ -256,7 +256,7 @@ export default function CreateEvent() {
             {/* Select Availability ============================================================================================ */}
             {eventAvailability === 'faculty' && (
             <div>
-                <label>Select Faculties:</label>
+                <label className='text-white mt-6'>Select Faculties:</label>
                 <br />
                 {facultiesList.map((faculty) => (
                 <div key={faculty}>
@@ -285,13 +285,13 @@ export default function CreateEvent() {
 
             {/* Event Date ===================================================================================================== */}
             <div>
-              <label>Event Date:</label>
+              <label className='text-white mt-6'>Event Date:</label>
               <br />
                 <input
                   type="date"
                   value={eventDate}
                   onChange={handleDateChange}
-                  className='mt-2 border-2 p-2 w-full'
+                  className='mt-2 border-2 p-2 w-full  rounded-lg text-xs  bg-zinc-900 text-gray-600 border-zinc-900'
                   min={new Date().toISOString().split("T")[0]}
                   required
                 />
@@ -300,14 +300,14 @@ export default function CreateEvent() {
 
             {/* Event Time ===================================================================================================== */}
             <div>
-              <label>Event Time:</label>
+              <label className='text-white mt-6'>Event Time:</label>
               <br />
                 <input
                   type="time"
                   name="eventTime"
                   value={eventTime}
                   onChange={handleTimeChange}
-                  className='border-2 p-2'
+                  className='border-2 p-2  rounded-lg text-xs  bg-zinc-900 text-gray-600 border-zinc-900'
                   required
                 />
               <br /><br />
@@ -315,17 +315,17 @@ export default function CreateEvent() {
 
             {/* Event Banner =================================================================================================== */}
             <div>
-                <label>
+                <label className='text-white mt-6'>
                 Event Banner
                 <br />
-                <span className='text-xs'>We recommend a 1920px by 1080px image</span>
+                <span className='text-xs text-white'>We recommend a 1920px by 1080px image</span>
                 <input type="file" accept="image/*" onChange={handleFileChange} className='mt-2' id='yourFileInputId'/>
                 </label>
             </div>
 
             {/* Submit Button ================================================================================================== */}
             <div className='pt-12 flex justify-center'>
-                <button type="submit" className='border-2 p-3 px-16 rounded-lg' onClick={handleSubmit}>Create Event</button>
+                <button type="submit" className='border-2 p-3 px-16 rounded-lg bg-blue-600 border-zinc-900 text-white' onClick={handleSubmit}>Create Event</button>
             </div>
 
         </form>

@@ -88,7 +88,7 @@ export default function Chat() {
   </div>
 
   {/* Input */}
-  <div className=" border-gray-200 px-4 pt-4 mb-2 sm:mb-0 fixed left-0 right-0 mt-96 pt-72">
+  <div className=" border-gray-200 px-4 mb-2 sm:mb-0 fixed left-0 right-0 mt-96 pt-72">
     <form onSubmit={sendMessage} className="relative">
       <div className="flex items-center">
         <input
