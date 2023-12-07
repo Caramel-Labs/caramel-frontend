@@ -37,9 +37,9 @@ export default function OtpVerified() {
     return (
         <div className="flex flex-col items-center justify-center  bg-zinc-950 h-screen">
             <h1 className="text-2xl font-semibold text-white">OTP Verified</h1>
-            <p className="text-gray-500 text-center mt-4 text-xs">Your email has been verified successfully</p>
+            <p className="text-gray-500 text-center mt-4 text-xs ">Your email has been verified successfully</p>
             <button 
-             className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-blue-700 border-none text-white text-sm shadow-sm"
+             className="flex flex-row items-center justify-center text-center w-72 border rounded-xl outline-none py-5 bg-blue-700 border-none text-white text-sm shadow-sm mt-4"
              onClick={onHandleNext}>
              Continue
             </button>

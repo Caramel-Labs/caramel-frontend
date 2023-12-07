@@ -13,7 +13,7 @@ export default function ChatHeader(){
                 </div>
                 <div className="flex flex-col leading-tight">
                 <div className="text-2xl mt-1 flex items-center">
-                    <span className="text-gray-700 mr-3 text-white">Loop AI</span>
+                    <span className=" mr-3 text-white">Loop AI</span>
                 </div>
                 </div>
          </div>

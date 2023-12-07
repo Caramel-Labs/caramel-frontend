@@ -32,7 +32,7 @@ export default function PaymentActionButton(props) {
     return (
         <button
           onClick={handlePayment}
-          className='bg-blue-600  rounded-lg h-12 w-80 mt-3 text-center text-xs text-white mt-6  '
+          className='bg-blue-600  rounded-lg h-12 w-80  text-center text-xs text-white mt-9  '
         >
           {`${pay? "Tickets Booked":"Buy Tickets"}`}
         </button>

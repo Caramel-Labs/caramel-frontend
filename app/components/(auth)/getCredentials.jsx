@@ -126,7 +126,7 @@ export default function GetCredentials() {
   
               <button
                   type='submit'
-                  className="w-full text-center py-3 rounded bg-blue-700 text-black hover:bg-green-dark focus:outline-none my-1 mt-14 h-12 w-72 text-xs rounded-lg text-white"
+                  className=" text-center py-3  bg-blue-700  hover:bg-green-dark focus:outline-none my-1 mt-14 h-12 w-72 text-xs rounded-lg text-white"
               >
                   Next
               </button>

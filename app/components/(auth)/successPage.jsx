@@ -51,7 +51,7 @@ export default function SuccessPage() {
                 </p>
            
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-11 h-12 w-80 rounded-lg text-xs" onClick={handleCreateAccount}>
-                Lets go
+                Let's go
             </button>
         </div>
     );
