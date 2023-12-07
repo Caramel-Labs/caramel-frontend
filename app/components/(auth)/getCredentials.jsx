@@ -9,8 +9,8 @@ export default function GetCredentials() {
     const { onHandleNext,setFormData} = useFormState()
     const [userData, setUserData] = useState({
         username:'',
-        first_name: '',
-        last_name: '',
+        firstName: '',
+        lastName: '',
         password: '',
         confirm_password: ''
       })
@@ -57,14 +57,14 @@ export default function GetCredentials() {
           <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
               <div className="bg-zinc-950 px-6 py-8 rounded shadow-md text-white w-full">
                   <h1 className="mb-8 text-center text-2xl">Get Started</h1>
-                  <p className='text-xs text-center mt-9'>First things first, let's get some basics out of the way.</p>
+                  <p className='text-xs text-center mt-9'>First things first, lets get some basics out of the way.</p>
   
                   <div className='mt-14'>
                       <input
                           type="text"
                           className="block border border-zinc-900 w-full p-3 rounded-lg mb-4 bg-zinc-900 text-xs text-white"
-                          name="first_name"
-                          value={userData.first_name}
+                          name="firstName"
+                          value={userData.firstName}
                           onChange={(e) => handleInputChange(e)}
                           placeholder="Enter First Name"
                           required
@@ -73,8 +73,8 @@ export default function GetCredentials() {
                       <input
                           type="text"
                           className="block border border-zinc-900 w-full p-3 rounded-lg mb-4 bg-zinc-900 text-xs text-white"
-                          name="last_name"
-                          value={userData.last_name}
+                          name="lastName"
+                          value={userData.lastName}
                           onChange={(e) => handleInputChange(e)}
                           placeholder="Enter Last Name"
                           required

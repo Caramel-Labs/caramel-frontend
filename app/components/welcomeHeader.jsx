@@ -9,7 +9,7 @@ export default function WelcomeHeader() {
   const username = currentUser?.username;
   const firstName = currentUser?.firstName;
 
-  const imgPath = `https://res.cloudinary.com/dekv3xmjm/image/upload/caramel/ProfilePics/${username}.jpg`;
+  const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/${username}.jpg`;
   const notifPath = (
     <svg
       width="24"
