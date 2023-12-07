@@ -47,7 +47,7 @@ export default function Faculty({ params }) {
   return (
     <div className="bg-zinc-950 h-screen">
       {/*tabs*/}
-      <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 pt-16 mx-16">
+      <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400 pt-16 mx-10">
         {menus.map((item) => (
           <li key={item} className="me-2">
             <a
