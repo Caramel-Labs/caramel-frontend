@@ -5,6 +5,7 @@ import { eventPageFormat } from '@/app/utility/formatDate'
 import EventActionButton from '@/app/components/eventActionButton'
 import LikeButton from '@/app/components/likeButton'
 import PaymentActionButton from '@/app/components/paymentActionButton'
+import EventUpdate from '@/app/components/eventUpdate'
 
 export default async function Event({ params }) {
 
@@ -15,7 +16,7 @@ export default async function Event({ params }) {
 
     const event = await getData(`http://localhost:3001/events/${params.id}`)
     console.log(event)
-    const { _id, name, society, date, time, description, venue, tickets, participants, likes } = event
+    const { _id, name, society, date, time, description, venue, tickets, participants, likes , updates} = event
 
     const formattedDate = eventPageFormat(date)
     const people = [
