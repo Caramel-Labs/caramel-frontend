@@ -4,6 +4,7 @@ import getData from '@/app/utility/getData.js'
 import { eventPageFormat } from '@/app/utility/formatDate'
 import EventActionButton from '@/app/components/eventActionButton'
 import LikeButton from '@/app/components/likeButton'
+import PaymentActionButton from '@/app/components/paymentActionButton'
 
 export default async function Event({ params }) {
 
@@ -96,7 +97,14 @@ export default async function Event({ params }) {
 
             </div >
             <div className='grid justify-items-center '>
-                    <EventActionButton id={_id} tickets={tickets} />
+               { tickets &&
+                    <PaymentActionButton id={_id} />
+               } 
+               {
+                     !tickets &&
+                     <EventActionButton id={_id} />
+               }
+                    
             </div>
 
 

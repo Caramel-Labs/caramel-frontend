@@ -1,22 +1,43 @@
+'use client'
 import EventCard from '@/app/components/eventCard.jsx'
 import Link from 'next/link'
 import WelcomeHeader from '@/app/components/welcomeHeader'
 import HomeCarousel from '@/app/components/homeCarousel'
+import { useState, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
 
-export default async function Home() {
+export default function Home() {
+ 
+ const [eventData, setEventData] = useState(null);
+  const { data: session } = useSession()
+   //const user = verifyJWT(session?.accessToken)
+   const currentUser = session?.user
 
 
-  const events = await fetch('http://localhost:3001/events/all', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ faculty: 'computing' })
-  });
+  useEffect(() => {
 
-  const response = await events.json()
-  // const today = getToday()
-  // console.log(today)
+    console.log(currentUser, "current user")
+    const fetchEventData = async () => {
+      try {
+        const events = await fetch('http://localhost:3001/events/all', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ faculty: `${currentUser.faculty}` })
+        });
+
+        const response = await events.json();
+        setEventData(response); // Update the state with the fetched data
+      } catch (error) {
+        console.error('Error fetching event data:', error);
+      }
+    };
+
+    fetchEventData(); // Call the function to fetch event data
+  }, [currentUser]);
+
+
 
   return (
     <div className='p-5 bg-zinc-950' >
@@ -56,7 +77,7 @@ export default async function Home() {
 
       <div>
         <h1 className="text-xl font-bold text-white mt-6"> Happening Soon</h1>
-        {response.map((event, i) => (
+        {eventData && eventData.map((event, i) => (
           <Link key={i} href={`event/${event._id}`}>
             <EventCard key={i} event={event} />
           </Link>

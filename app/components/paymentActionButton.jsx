@@ -3,32 +3,25 @@ import { useSession } from 'next-auth/react'
 import { useState } from 'react'
 
 
-export default function EventActionButton(props) {
+export default function PaymentActionButton(props) {
 
-    const [join, setJoin] = useState(false)
+    const [pay, setPay] = useState(false)
     const { data: session } = useSession()
     const currentUser = session?.user
     // console.log(currentUser,"current user")
 
      // handle event registration
-     async function handleClick() {
+     async function handlePayment() {
       
-      setJoin(true)
       const data = {
         user_id: currentUser._id,
         event_id: props.id
       }
 
-      const response = await fetch('http://localhost:3001/profiles/join', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-
+      
       if (response.ok) {
         console.log("Event joined successfully")
+        setPay(true)
       } else {
         console.log("Event join failed")
         setJoin(false)
@@ -38,10 +31,10 @@ export default function EventActionButton(props) {
 
     return (
         <button
-          onClick={handleClick}
+          onClick={handlePayment}
           className='bg-red-500 p-4 rounded-lg h-12 w-80 mt-3 '
         >
-          {`${join? "Registered":"Register Now"}`}
+          {`${pay? "Tickets Booked":"Buy Tickets"}`}
         </button>
     );
 }
