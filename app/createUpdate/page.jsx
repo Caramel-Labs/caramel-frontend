@@ -98,19 +98,19 @@ export default function CreateUpdate(props) {
   
 
   return (
-    <div className='p-5'>
-        <h2 className='text-2xl font-bold pb-3'>IMAGE UPLOAD</h2>
+    <div className='p-5 bg-zinc-950 h-screen'>
+        <h2 className='text-2xl font-bold pb-3 mt-6 text-white'>IMAGE UPLOAD</h2>
 
         <form onSubmit={handleCloudinary}>
 
             {/* Image Caption ===================================================================================================== */}
             <div>
-                <label>Event Description:</label>
+                <label className='text-white mt-4'>Event Description:</label>
                 <br />
                 <textarea
                     value={eventDescription}
                     onChange={(e) => setEventDescription(e.target.value)}
-                    className='mt-2 border-2 p-2 w-full'
+                    className='mt-2 border-2 p-2 w-full  rounded-lg bg-zinc-900 text-white border-zinc-900'
                     placeholder='What is your event all about?'
                     required
                 />
@@ -119,17 +119,17 @@ export default function CreateUpdate(props) {
 
             {/* Image Upload ===================================================================================================== */}
             <div>
-                <label>
+                <label className='text-white'>
                 Image Upload
                 <br />
-                <span className='text-xs'>Upload an image</span>
+                
                 <input type="file" accept="image/*" onChange={handleFileChange} className='mt-2' id='yourFileInputId'/>
                 </label>
             </div>
 
             {/* Submit Button ================================================================================================== */}
-            <div className='pt-12 flex justify-center'>
-                <button onClick={handleSubmit} className='border-2 p-3 px-16 rounded-lg'>Upload Image</button>
+            <div className='pt-12 flex justify-center items-end'>
+                <button onClick={handleSubmit} className='bg-blue-600  rounded-lg h-12 w-80  text-center text-xs text-white  mt-80'>Upload Image</button>
             </div>
 
         </form>
