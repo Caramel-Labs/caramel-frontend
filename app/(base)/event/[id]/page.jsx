@@ -18,13 +18,22 @@ export default async function Event({ params }) {
     const { _id, name, society, date, time, description, venue, tickets, participants, likes } = event
 
     const formattedDate = eventPageFormat(date)
-
+    const people =[
+       "kalana2001",
+       "ravindu2001",
+       "manujaya2001"
+    ]
     const props = {
         eventId: params.id,
         initialLikes: likes
       };
 
       console.log(props)
+
+     const avatarPath1 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/kalana2001.jpg` 
+     const avatarPath2 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/lasindu2001.jpg` 
+     const avatarPath3 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/ravindu2001.jpg` 
+
 
     return (
         <div className='bg-zinc-900 h-screen'>
@@ -42,9 +51,9 @@ export default async function Event({ params }) {
             <div className='mt-2'>
                 <div class="flex ">
                     <div class="w-1/4 p-4  flex items-center justify-center ">
-                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src=".../public/kalana2001.jpg" alt="" />
-                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/ravindu2001.jpg" alt="" />
-                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/senindu2005.jpg" alt="" />
+                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath1} alt="" />
+                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath2}alt="" />
+                        <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath3}alt="" />
                     </div>
                     <div class="w-3/4 pt-4 ">
                         <p className='text-white mt-4'> {participants.length} already registered</p>
