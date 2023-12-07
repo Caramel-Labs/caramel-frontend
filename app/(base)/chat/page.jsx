@@ -2,11 +2,15 @@
 import { useState, useRef, useEffect } from 'react';
 import Message from '@/app/components/message';
 import ChatHeader from '@/app/components/chatHeader';
+import { useSession } from 'next-auth/react';
 
 export default function Chat() {
   const dummy = useRef();
   const [messages, setMessages] = useState([]);
   const [formValue, setFormValue] = useState('');
+
+  const { data: session } = useSession();
+  const username = session?.username
 
   const sendIcon =  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-6 w-6 ml-2 transform rotate-90">
   <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
@@ -15,20 +19,29 @@ export default function Chat() {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await fetch(''); // Replace with your backend endpoint
+        const response = await fetch('http://localhost:3001/chat/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json', // Set the appropriate content type if sending JSON data
+            // Add other headers if required
+          },
+          body: JSON.stringify({ username: username}),
+        });
+      
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+      
         const data = await response.json();
+        console.log(data, "msgs awa ")
         setMessages(data); // Update messages state with fetched data
         dummy.current.scrollIntoView({ behavior: 'smooth' });
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
-    };
-
     fetchMessages();
-  }, []);
+}
+}, []);
 
   const sendMessage = async (e) => {
     e.preventDefault();

@@ -6,6 +6,7 @@ export default function OtpVerified() {
     const {formData} = useFormState()
     const router = useRouter()
 
+    console.log(formData, "verified")
     async function handleCreateAccount() {
 
         const userData = {

@@ -2,18 +2,13 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import { parseStringToDate, getTimeDifference } from '@/app/utility/getDaysLeft'
-// import { useSession } from 'next-auth/react'
 import { eventCardFormat } from '@/app/utility/formatDate'
 
 
 export default function EventCard(props) {
 
-  const { i, _id, name, society, date, venue } = props.event
-  // const [join, setJoin] = useState(false)
-
-  // const { data: session } = useSession()
-  // const currentUser = session?.user
-
+  const { i, name, society, date, venue } = props.event
+ 
 
   const imgPath = `https://www.kidsmathgamesonline.com/images/pictures/shapes/square.jpg`
   const fallBackPath = '/../public/event-bg.jpg'

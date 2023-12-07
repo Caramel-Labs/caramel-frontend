@@ -25,29 +25,31 @@ export default function GetCredentials() {
         }))
       }
 
-    async function handleSubmit(e) {
-        e.preventDefault()
-        if(userData.password !== userData.confirm_password) {
-            setPasswordError(true)
-            setUserData((prevUserData) => ({
-                ...prevUserData,
-                password: '',
-                confirm_password: '',
-              }))
-            return
+      async function handleSubmit(e) {
+        e.preventDefault();
+      
+        if (userData.password !== userData.confirm_password) {
+          setPasswordError(true);
+          setUserData((prevUserData) => ({
+            ...prevUserData,
+            password: '',
+            confirm_password: '', // Clear the confirm password field too
+          }));
+          return;
         }
-
-        setFormData((prev) => ({ ...prev,
-            first_name: userData.first_name, 
-            last_name: userData.last_name,
-            username: userData.username,
-            password: userData.password,
-        }))
-
-        console.log(userData, "user data")
-        onHandleNext()
-        //setUserData({})
-    }
+      
+        // Create a new object excluding confirm_password
+        const { confirm_password, ...formDataWithoutConfirmPassword } = userData;
+      
+        setFormData((prev) => ({
+          ...prev,
+          ...formDataWithoutConfirmPassword, // Add form data except confirm_password
+        }));
+      
+        console.log(formDataWithoutConfirmPassword, "form data without confirm password");
+        onHandleNext();
+      }
+      
 
     return(
         <form method="post" onSubmit={handleSubmit}> 
