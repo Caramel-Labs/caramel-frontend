@@ -37,17 +37,21 @@ export default function SuccessPage() {
   }
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
-                <Image alt="logo" />
-                <h1 className="text-4xl font-bold mb-4">
+        <div className="h-screen flex flex-col items-center justify-center bg-zinc-950 ">
+                <img
+                alt="logo"
+                src="https://res.cloudinary.com/dy3hecuzo/image/upload/v1701959915/logo.png"
+                className="mt-32 h-36 w-36 flex flex-col items-center justify-center mt-28"
+            />
+                <h1 className="font-bold mb-4 mt-56 text-2xl text-white">
                     ALL DONE
                 </h1>
-                <p>
-                    lorem ipsum dolor sit amet
+                <p className="mt-8 mx-4 text-center text-white text-xs">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
            
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={handleCreateAccount}>
-                Lets gooo
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-11 h-12 w-80 rounded-lg text-xs" onClick={handleCreateAccount}>
+                Let's go
             </button>
         </div>
     );
