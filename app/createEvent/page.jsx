@@ -13,6 +13,10 @@ export default function CreateEvent() {
   const [eventDescription, setEventDescription] = useState('');
   const [eventAvailability, setEventAvailability] = useState('all'); // Default value is 'all'
   const [selectedFaculties, setSelectedFaculties] = useState([]);
+  const [society, setSociety] = useState('')
+
+  const [imageSrc, setImageSrc] = useState();
+  const [uploadData, setUploadData] = useState();
 
   // State variables to manage date and time
   const [eventDate, setEventDate] = useState('');
@@ -50,11 +54,30 @@ export default function CreateEvent() {
 
 
   // Helper function to handle file input change (event banner)
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
+  const handleFileChange = async (changeEvent) => {
+    const file = changeEvent?.target?.files?.[0]; // Check for null or undefined values
+    
+    if (!file) {
+      console.error('File not selected');
+      return;
+    }
+  
     setEventBanner(file);
+  
+    const reader = new FileReader();
+  
+    reader.onload = function (onLoadEvent) {
+      if (onLoadEvent?.target?.result) {
+        setImageSrc(onLoadEvent.target.result);
+        setUploadData(undefined);
+      } else {
+        console.error('Error reading file');
+      }
+    };
+  
+    reader.readAsDataURL(file);
   };
-
+  
   // Helper function to handle availability selection
   const handleAvailabilityChange = (e) => {
     const { value } = e.target;
@@ -65,7 +88,6 @@ export default function CreateEvent() {
   async function handleSubmit(e) {
     e.preventDefault();
     // Do something with the form data, e.g., send it to the server
-    
     if( eventAvailability ==='all') {
       console.log("All faculties selected")
       selectedFaculties.push("all")
@@ -82,6 +104,7 @@ export default function CreateEvent() {
       selectedFaculties: selectedFaculties,
       date: eventDate,
       time: eventTime,
+      society:society
       //banner: eventBanner,
     };
 
@@ -93,7 +116,7 @@ export default function CreateEvent() {
      setEventDate('');
      setEventTime('');
      setEventBanner(null);
-
+     setSociety('')
 
     console.log("output", eventData)
 
@@ -108,13 +131,55 @@ export default function CreateEvent() {
 
       if (response.ok) {
         console.log("Event created successfully")
+        await handleCloudinary(e);
+
         
       } else {
         console.log("Event creation failed")
       }
 
+    
    
   };
+
+  const handleCloudinary = async (event) => {
+    event.preventDefault();
+    
+    // Find the file input by its name 'file' instead of accessing 'elements'
+    const fileInput = document.getElementById('yourFileInputId')
+    
+    if (!fileInput) {
+      console.error('File input not found');
+      return;
+    }
+  
+    const formData = new FormData();
+  
+    for (const file of fileInput.files) {
+      formData.append('file', file);
+    }
+  
+    formData.append('public_id', eventName); // Use eventName to set the public_id
+    formData.append('upload_preset', 'events');
+  
+    try {
+      const response = await fetch('https://api.cloudinary.com/v1_1/dy3hecuzo/image/upload', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        setImageSrc(data.secure_url);
+        setUploadData(data);
+      } else {
+        console.error('Failed to upload image to Cloudinary');
+      }
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
+  };
+  
 
   return (
     <div className='p-5'>
@@ -252,7 +317,7 @@ export default function CreateEvent() {
                 Event Banner
                 <br />
                 <span className='text-xs'>We recommend a 1920px by 1080px image</span>
-                <input type="file" accept="image/*" onChange={handleFileChange} className='mt-2' />
+                <input type="file" accept="image/*" onChange={handleFileChange} className='mt-2' id='yourFileInputId'/>
                 </label>
             </div>
 

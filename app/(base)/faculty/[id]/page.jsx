@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import SocietyCard from "@/app/components/societyCard";
 import EventCard from "@/app/components/eventCard";
+import Link from "next/link";
 
 export default function Faculty({ params }) {
 
@@ -83,23 +84,28 @@ export default function Faculty({ params }) {
         <div>
           <p className="mt-6 text-white mx-4 text-xs"> The {facultyData.faculty.facultyName} has {facultyData.faculty.societies.length} societies for its undergraduate students to engage with.</p>
           {/* Add content for Societies section */}
-          <div className="mx-4"> {facultyData.faculty.societies.map((society, i) => (
+          <div className="mx-4"> 
+          {facultyData.faculty.societies.map((society, i) => (
+           <Link key={i} src={``}>
             <SocietyCard key={i} society={society} />
+          </Link> 
           ))}</div>
          
         </div>
       )}
 
       {/* Display Events section */}
-      <div className=""> {active === 'Events' && facultyData && (
+     {active === 'Events' && facultyData && (
         <div>
           <h2 className="text-white mt-4 ml-4 text-xl">Whats happening at {facultyData.faculty.facultyName}? </h2>
           {/* Add content for Events section */}
           {facultyData.filteredEvents.map((event, i) => (
+             <Link key={i} src={``}>
             <EventCard key={i} event={event} />
+            </Link>
           ))}
         </div>
-      )}</div>
+      )}
     </div>
   );
 };

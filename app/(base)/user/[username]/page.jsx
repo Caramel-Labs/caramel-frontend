@@ -8,7 +8,6 @@ export default async function Profile({ params }) {
 	const response = await fetch(`http://localhost:3001/profiles/${params.username}`, {
     method: 'GET',
     headers: {
-	  'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`,
       'Content-Type': 'application/json'
     },
   });

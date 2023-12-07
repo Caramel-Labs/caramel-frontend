@@ -10,13 +10,18 @@ export default function Chat() {
   const [formValue, setFormValue] = useState('');
 
   const { data: session } = useSession();
-  const username = session?.username
+  const currentUser = session?.user
+  const username = currentUser?.username
+
+
+  console.log(username, "chat ekt awa")
 
   const sendIcon =  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-6 w-6 ml-2 transform rotate-90">
   <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
     </svg>
 
   useEffect(() => {
+  
     const fetchMessages = async () => {
       try {
         const response = await fetch('http://localhost:3001/chat/', {
@@ -27,21 +32,21 @@ export default function Chat() {
           },
           body: JSON.stringify({ username: username}),
         });
-      
+  
         if (!response.ok) {
           throw new Error('Network response was not ok');
-        }
-      
+        } 
         const data = await response.json();
         console.log(data, "msgs awa ")
-        setMessages(data); // Update messages state with fetched data
+        setMessages(data.messeges); // Update messages state with fetched data
         dummy.current.scrollIntoView({ behavior: 'smooth' });
       } catch (error) {
         console.error('Error fetching messages:', error);
       }
-    fetchMessages();
-}
-}, []);
+  }
+
+  fetchMessages()
+}, [username]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -73,10 +78,10 @@ export default function Chat() {
     {/* Header */}
     <ChatHeader />
   
-    <div id="messages" className="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
+    <div id="messages" className="flex flex-col space-y-1 p-3 pt-0 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch">
       {/* Chat messages */}
-      {messages.map((msg, index) => (
-        <Message key={index} message={msg} />
+      {messages && messages.map((message, index) => (
+        <Message key={index} message={message} />
       ))}
       <span ref={dummy}></span>
     </div>
@@ -103,6 +108,7 @@ export default function Chat() {
       </form>
     </div>
   </div>
+  
   
   );
 }

@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 export default function OtpVerified() {
 
-    const {formData} = useFormState()
+    const {formData , onHandleNext} = useFormState()
     const router = useRouter()
 
     console.log(formData, "verified")
@@ -23,7 +23,7 @@ export default function OtpVerified() {
         });
     
         if (response.ok) {
-         router.push('/auth/login')
+        onHandleNext()
          console.log("Account Created successfully")
         } else {
          console.log("Account Creation failed")

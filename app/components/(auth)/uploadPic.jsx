@@ -1,6 +1,4 @@
 'use client'
-import { CldUploadWidget } from 'next-cloudinary';
-import UploadWidget from '@/app/components/(auth)/uploadWidget';
 import { useState } from 'react';
 import { useFormState } from "@/app/utility/FormContext"
 
