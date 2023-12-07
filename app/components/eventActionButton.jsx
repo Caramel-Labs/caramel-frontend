@@ -36,7 +36,7 @@ export default function EventActionButton(props) {
     return (
         <button
           onClick={handleClick}
-          className='bg-red-500 p-4 rounded-lg px-20'
+          className='bg-red-500 p-4 rounded-lg h-12 w-80 mt-3 '
         >
           {`${props.tickets === true? "Buy Tickets":"Register Now"}`}
         </button>

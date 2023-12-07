@@ -64,7 +64,7 @@ export default async function Event({ params }) {
                 </div>
 
                 <div>
-                    <div class="flex mt-6">
+                    <div class="flex mt-3">
                         <div class="w-1/4 p-4  flex items-center justify-center ml-10">
                             {locationPath}
                         </div>
@@ -78,7 +78,7 @@ export default async function Event({ params }) {
                 {/* <Image height="100" width="100" src={""} alt='society-image' ></Image>
                     <p className='ml-20 text-white'>organized by </p>
                     <p className='ml-20 text-white'> {society}</p> */}
-                <div class="flex mt-6">
+                <div class="flex mt-3">
                     <div class="w-1/4 p-4  flex items-center justify-center ml-10 rounded-full bg-white w-12 h-12 border-solid ">
                         <Image height="100" width="100" src={""} alt='society-image' ></Image>
                     </div>
@@ -89,7 +89,7 @@ export default async function Event({ params }) {
                 </div>
 
             </div >
-            <div className='grid justify-items-center mt-4'>
+            <div className='grid justify-items-center '>
                     <EventActionButton id={_id} tickets={tickets} />
             </div>
 
