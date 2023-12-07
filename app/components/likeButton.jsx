@@ -43,8 +43,8 @@ export default function LikeButton(props) {
   };
 
   return (
-    <button onClick={handleLike}>
-      {likes} {heart}
-    </button>
+    <button onClick={handleLike} className="bg-blue-600 w-12 h-7 flex items-center justify-center mr-4 rounded-lg text-xs p-4">
+  {heart} <span className="ml-1">{likes}</span>
+</button>
   );
 }

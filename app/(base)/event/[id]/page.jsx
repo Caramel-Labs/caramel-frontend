@@ -9,8 +9,8 @@ import PaymentActionButton from '@/app/components/paymentActionButton'
 export default async function Event({ params }) {
 
     const imgPath = `https://res.cloudinary.com/dekv3xmjm/image/upload/caramel/events/${params.id}.jpg`
-    const locationPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-    const calendarPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+    const locationPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#334155" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+    const calendarPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#334155" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
 
 
     const event = await getData(`http://localhost:3001/events/${params.id}`)
@@ -63,7 +63,7 @@ export default async function Event({ params }) {
             </div>
 
             {/* event description */}
-            <p className='text-white text-xs ml-1 mt-8'>{description}</p>
+            <p className='text-white text-xs ml-1 mt-8 ml-4'>{description}</p>
 
             {/* event details */}
             <div className=''>
@@ -94,11 +94,11 @@ export default async function Event({ params }) {
                 {/* <Image height="100" width="100" src={""} alt='society-image' ></Image>
                     <p className='ml-20 text-white'>organized by </p>
                     <p className='ml-20 text-white'> {society}</p> */}
-                <div class="flex mt-3">
+                <div class="flex mt-3 -ml-6">
                     <div class="w-1/4 p-4  flex items-center justify-center ml-10 rounded-full bg-white w-12 h-12 border-solid ">
                         <Image height="100" width="100" src={""} alt='society-image' ></Image>
                     </div>
-                    <div class="w-3/4 p-4 ml-2">
+                    <div class="w-3/4 p-2 ml-4">
                         <p className='text-white text-xs'>organized by </p>
                         <p className='text-white text-sm'> {society}</p>
                     </div>

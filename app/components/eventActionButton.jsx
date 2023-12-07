@@ -39,7 +39,7 @@ export default function EventActionButton(props) {
     return (
         <button
           onClick={handleClick}
-          className='bg-red-500 p-4 rounded-lg h-12 w-80 mt-3 '
+          className='bg-blue-600  rounded-lg h-12 w-80 mt-3 text-center text-xs text-white '
         >
           {`${join? "Registered":"Register Now"}`}
         </button>

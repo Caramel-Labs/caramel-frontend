@@ -96,7 +96,7 @@ export default function Faculty({ params }) {
 
       {/* Display Events section */}
      {active === 'Events' && facultyData && (
-        <div>
+        <div className="mx-4">
           <h2 className="text-white mt-4 ml-4 text-xl">Whats happening at {facultyData.faculty.facultyName}? </h2>
           {/* Add content for Events section */}
           {facultyData.filteredEvents.map((event, i) => (

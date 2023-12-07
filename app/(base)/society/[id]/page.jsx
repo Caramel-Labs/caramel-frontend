@@ -40,7 +40,7 @@ export default async function Society({ params }) {
   
     <h2 className='mt-6 text-[20px] ml-4 text-white'> Events </h2>
     {/* event list */}
-    <div className=' mx-4 mt-6'> 
+    <div className=' mx-4 mt-6 '> 
       {events.map((event, i) => (
         <Link key={i} href={`event/${event._id}`}>
           <EventCard key={i} event={event} />
