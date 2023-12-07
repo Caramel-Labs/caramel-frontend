@@ -14,7 +14,7 @@ export default function FacultyCard(props){
   <Image className="rounded-t-lg" src={imgPath} alt="header img" width="500" height="200" priority={true} />
 
   {/* Overlay Section */}
-  <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-end">
+  <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-end rounded-lg">
     {/* Content Section */}
     <div className="py-1 px-4 rounded-lg bg-black/50 text-white w-full h-full">
       {/* Faculty Name Section */}
@@ -27,7 +27,7 @@ export default function FacultyCard(props){
 
       {/* Link Section */}
       <Link href={`faculty/${_id}`}>
-        <button className="bg-black text-white px-4 py-2 rounded-md mt-3 text-[10px]">See Faculty</button>
+        <button className="bg-violet-800 text-white px-4 py-2 rounded-md mt-3 text-[10px]">See Faculty</button>
       </Link>
     </div>
   </div>
