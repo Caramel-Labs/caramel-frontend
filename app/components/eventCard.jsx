@@ -10,7 +10,7 @@ export default function EventCard(props) {
   const { i, name, society, date, venue } = props.event
  
 
-  const imgPath = `https://www.kidsmathgamesonline.com/images/pictures/shapes/square.jpg`
+  const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1701971490/Events/${name}.jpg`
   const fallBackPath = '/../public/event-bg.jpg'
   const formattedDate = eventCardFormat(date)
   // const parsedDate = parseStringToDate(date, time)

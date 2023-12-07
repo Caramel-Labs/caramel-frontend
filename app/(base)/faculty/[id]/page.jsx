@@ -86,7 +86,7 @@ export default function Faculty({ params }) {
           {/* Add content for Societies section */}
           <div className="mx-4"> 
           {facultyData.faculty.societies.map((society, i) => (
-           <Link key={i} src={``}>
+           <Link key={i} href={`society/${society._id}`}>
             <SocietyCard key={i} society={society} />
           </Link> 
           ))}</div>
@@ -100,7 +100,7 @@ export default function Faculty({ params }) {
           <h2 className="text-white mt-4 ml-4 text-xl">Whats happening at {facultyData.faculty.facultyName}? </h2>
           {/* Add content for Events section */}
           {facultyData.filteredEvents.map((event, i) => (
-             <Link key={i} src={``}>
+             <Link key={i} href={`event/${event._id}`}>
             <EventCard key={i} event={event} />
             </Link>
           ))}

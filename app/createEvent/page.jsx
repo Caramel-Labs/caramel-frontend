@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { useSession } from 'next-auth/react'
+import { useRouter } from "next/navigation"
 
 export default function CreateEvent() {
 
+  const router = useRouter()
   const { data: session } = useSession()
   const currentUser = session?.user
   console.log(currentUser)
@@ -132,7 +134,7 @@ export default function CreateEvent() {
       if (response.ok) {
         console.log("Event created successfully")
         await handleCloudinary(e);
-
+        router.push('/home')
         
       } else {
         console.log("Event creation failed")
