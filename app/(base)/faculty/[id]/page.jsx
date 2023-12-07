@@ -100,15 +100,6 @@ export default function Faculty({ params }) {
           ))}
         </div>
       )}</div>
-      {active === 'Events' && facultyData && (
-        <div>
-          <h2 className="">Whats happening at {facultyData.faculty.facultyName}? </h2>
-          {/* Add content for Events section */}
-          {facultyData.filteredEvents.map((event, i) => (
-            <EventCard key={i} event={event} />
-          ))}
-        </div>
-      )}
     </div>
   );
 };
