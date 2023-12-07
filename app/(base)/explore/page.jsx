@@ -13,7 +13,7 @@ export default function Explore() {
             
             {/* the search box */}
             <div className="pt-2 relative mx-auto text-gray-600 flex flex-col ">
-                <input className="border-2 border-zinc-900 bg-zinc-900 h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none mt-3 mx-4 "
+                <input className="border-2 border-zinc-900 bg-zinc-900 h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none mt-3 mx-4 text-xs "
                 type="search" name="search" placeholder="Search for societies, events and more..."/>
                 <button type="submit" className="absolute right-0 top-0 mt-9 mr-8">
                 <svg

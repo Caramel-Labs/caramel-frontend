@@ -13,7 +13,7 @@ export default async function FacultyFeed(){
     
                  {/* the search box */}
                  <div className="pt-2 relative mx-auto text-gray-600 flex flex-col mt-4 mr-4 ml-4 ">
-                    <input className="border-2 border-zinc-900 bg-zinc-900 h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none "
+                    <input className="border-2 border-zinc-900 bg-zinc-900 h-12 px-5 pr-16 rounded-lg text-sm focus:outline-none text-xs"
                     type="search" name="search" placeholder="Search faculties..."/>
                     <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
                     <svg
