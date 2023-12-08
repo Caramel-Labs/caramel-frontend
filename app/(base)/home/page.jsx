@@ -24,7 +24,7 @@ export default function Home() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ faculty: `${currentUser.faculty}` })
+          body: JSON.stringify({ faculty:`${currentUser.faculty}`})
         });
 
         const response = await events.json();
@@ -37,8 +37,7 @@ export default function Home() {
     fetchEventData(); // Call the function to fetch event data
   }, [currentUser]);
 
-
-
+  //  
   return (
     <div className='p-5 bg-zinc-950' >
 

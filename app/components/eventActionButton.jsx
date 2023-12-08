@@ -1,8 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
-
+import { useRouter } from 'next/router';
 
 export default function EventActionButton(props) {
 
@@ -37,7 +36,7 @@ export default function EventActionButton(props) {
       }
 
     }
-    async function handleUpdate() {
+     function handleUpdate() {
       
       router.push('/createUpdate')
 
@@ -55,7 +54,7 @@ export default function EventActionButton(props) {
         {
           isAdmin && (
             <button
-              onClick={handleClick}
+              onClick={handleUpdate}
               className='bg-red-500 p-4 rounded-lg h-12 w-80 mt-3 '
             >
               Add Event Update

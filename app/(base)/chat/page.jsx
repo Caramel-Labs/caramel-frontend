@@ -8,6 +8,7 @@ export default function Chat() {
   const dummy = useRef();
   const [messages, setMessages] = useState([]);
   const [formValue, setFormValue] = useState('');
+  const [data, setData] = useState(null);
 
   const { data: session } = useSession();
   const currentUser = session?.user
@@ -38,7 +39,8 @@ export default function Chat() {
         } 
         const data = await response.json();
         console.log(data, "msgs awa ")
-        setMessages(data.messeges); // Update messages state with fetched data
+        setData(data); // Update messages state with fetched data
+        setMessages(data.messeges);
         dummy.current.scrollIntoView({ behavior: 'smooth' });
       } catch (error) {
         console.error('Error fetching messages:', error);
@@ -48,28 +50,36 @@ export default function Chat() {
   fetchMessages()
 }, [username]);
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
+const sendMessage = async (e) => {
+  e.preventDefault();
+  const chatData ={
+    messege: formValue,
+    username: username,
+    chat_id:data._id
+  }
+  try {
+    // Update messages state with the new message instantly
+    setMessages((prevMessages) => [...prevMessages, { content: formValue, isBot: false }]);
+    setFormValue('');
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
 
-    try {
-      const response = await fetch('', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: formValue }),
-      });
+    const response = await fetch('http://localhost:3001/messege/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ chatData }),
+    });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      setFormValue('');
-      dummy.current.scrollIntoView({ behavior: 'smooth' });
-    } catch (error) {
-      console.error('Error sending message:', error);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-  };
+
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  } catch (error) {
+    console.error('Error sending message:', error);
+  }
+};
 
   return (
 
