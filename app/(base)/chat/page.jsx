@@ -68,7 +68,9 @@ const sendMessage = async (e) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ chatData }),
+      body: JSON.stringify({ messege: formValue,
+        username: username,
+        chat_id:data._id }),
     });
 
     if (!response.ok) {
