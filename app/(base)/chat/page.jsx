@@ -73,6 +73,19 @@ const sendMessage = async (e) => {
         chat_id:data._id }),
     });
 
+    const responseData = await response.json();
+
+    if(response.ok){
+      
+      // Update messages state with the received data if required
+      // For example:
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        responseData.message // Assuming 'responseData.message' holds the new message data
+      ]);
+
+    }
+
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -82,6 +95,8 @@ const sendMessage = async (e) => {
     console.error('Error sending message:', error);
   }
 };
+
+
 
   return (
 
