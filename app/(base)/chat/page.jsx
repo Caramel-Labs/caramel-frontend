@@ -8,6 +8,7 @@ export default function Chat() {
   const dummy = useRef();
   const [messages, setMessages] = useState([]);
   const [formValue, setFormValue] = useState('');
+  const [data, setData] = useState(null);
 
   const { data: session } = useSession();
   const currentUser = session?.user
@@ -38,7 +39,8 @@ export default function Chat() {
         } 
         const data = await response.json();
         console.log(data, "msgs awa ")
-        setMessages(data); // Update messages state with fetched data
+        setData(data); // Update messages state with fetched data
+        setMessages(data.messeges);
         dummy.current.scrollIntoView({ behavior: 'smooth' });
       } catch (error) {
         console.error('Error fetching messages:', error);
