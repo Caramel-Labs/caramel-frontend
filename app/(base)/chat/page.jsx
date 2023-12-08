@@ -38,7 +38,7 @@ export default function Chat() {
         } 
         const data = await response.json();
         console.log(data, "msgs awa ")
-        setMessages(data.messeges); // Update messages state with fetched data
+        setMessages(data); // Update messages state with fetched data
         dummy.current.scrollIntoView({ behavior: 'smooth' });
       } catch (error) {
         console.error('Error fetching messages:', error);
@@ -50,7 +50,11 @@ export default function Chat() {
 
 const sendMessage = async (e) => {
   e.preventDefault();
-
+  const chatData ={
+    messege: formValue,
+    username: username,
+    chat_id:data._id
+  }
   try {
     // Update messages state with the new message instantly
     setMessages((prevMessages) => [...prevMessages, { content: formValue, isBot: false }]);
@@ -62,7 +66,7 @@ const sendMessage = async (e) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ text: formValue }),
+      body: JSON.stringify({ chatData }),
     });
 
     if (!response.ok) {
