@@ -18,15 +18,20 @@ export default async function Society({ params }) {
   const imgPath = "https://res.cloudinary.com/dekv3xmjm/image/upload/caramel/events/64c79c0b7bd1e0f15ef11476.jpg"
   const { societyName, description, volunteers, events } = response
 
+  const avatarPath1 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/kalana2001.jpg`
+  const avatarPath2 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/lasindu2001.jpg`
+  const avatarPath3 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/ravindu2001.jpg`
+
+
   return (
     <div className='bg-zinc-950 h-auto'>
     <Image height="400" width="800" src={imgPath} alt='hero-image' />
     <h1 className='text-[24px] font-bold mt-6 ml-4 text-white'>{societyName}</h1>
     {/* already joined user avatars */}
     <div className="flex -space-x-4 mt-6 ml-4">
-      <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src=".../public/kalana2001.jpg" alt="" />
-      <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/ravindu2001.jpg" alt="" />
-      <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/senindu2005.jpg" alt="" />
+    <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath1} alt="" />
+            <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath2} alt="" />
+             <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath3} alt="" />
       <div className="w-3/4 p-4 ml-2 text-xs text-black">
         <p className='mt- text-[8px] text-white'>{volunteers.length} followers</p>
       </div>

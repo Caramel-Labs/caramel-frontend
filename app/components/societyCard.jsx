@@ -4,7 +4,12 @@ export default function SocietyCard(props) {
 
   const { i, _id, societyName, description, volunteers } = props.society
 
-  const imgPath = "https://www.americasfinestlabels.com/includes/work/image_cache/d53be44a878291f344951999f2ef86c6.thumb.jpg"
+  const avatarPath1 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/kalana2001.jpg`
+  const avatarPath2 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/lasindu2001.jpg`
+  const avatarPath3 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/ravindu2001.jpg`
+
+
+  const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1701971490/Society/${societyName}.jpg`
   return (
     <div key={i}>
 
@@ -26,9 +31,9 @@ export default function SocietyCard(props) {
 
           {/* user avatars */}
           <div className='flex'><div className="flex items-center justify-center -space-x-4 rtl:space-x-reverse">
-            <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src=".../public/kalana2001.jpg" alt="" />
-            <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/ravindu2001.jpg" alt="" />
-            <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src="@/public/senindu2005.jpg" alt="" />
+          <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath1} alt="" />
+            <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath2} alt="" />
+             <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath3} alt="" />
 
             <div className="flex items-center ml-2">
               <p className='text-white text-[8px] ml-5'>{volunteers.length} members</p>

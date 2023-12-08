@@ -48,28 +48,32 @@ export default function Chat() {
   fetchMessages()
 }, [username]);
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
+const sendMessage = async (e) => {
+  e.preventDefault();
 
-    try {
-      const response = await fetch('', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ text: formValue }),
-      });
+  try {
+    // Update messages state with the new message instantly
+    setMessages((prevMessages) => [...prevMessages, { content: formValue, isBot: false }]);
+    setFormValue('');
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
 
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
+    const response = await fetch('http://localhost:3001/messege/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: formValue }),
+    });
 
-      setFormValue('');
-      dummy.current.scrollIntoView({ behavior: 'smooth' });
-    } catch (error) {
-      console.error('Error sending message:', error);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
     }
-  };
+
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  } catch (error) {
+    console.error('Error sending message:', error);
+  }
+};
 
   return (
 
