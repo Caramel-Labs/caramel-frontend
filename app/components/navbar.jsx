@@ -28,7 +28,7 @@ export default function Navbar() {
 
    
    return (
-      <div className="fixed bottom-0 mx-0 z-50 w-full h-16 bg-zinc-950 border-t-2 border-white rounded-t-lg drop-shadow-2xl">
+      <div className="fixed bottom-0 mx-0 z-50 w-full h-16 bg-zinc-950 border-t-2 border-zinc-900 rounded-t-lg drop-shadow-2xl">
          <div className="grid h-full max-w-lg grid-cols-4 mx-auto">
 
             {Menus.map((menu, i) => (
