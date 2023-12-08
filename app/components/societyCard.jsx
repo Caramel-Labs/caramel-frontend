@@ -9,7 +9,7 @@ export default function SocietyCard(props) {
   const avatarPath3 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/ravindu2001.jpg`
 
 
-  const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1701971490/Society/${societyName}.jpg`
+  const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1701971490/Socities/${societyName}.jpg`
   return (
     <div key={i}>
 
