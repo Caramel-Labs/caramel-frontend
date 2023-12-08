@@ -36,7 +36,7 @@ export default function SocietyCard(props) {
              <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath3} alt="" />
 
             <div className="flex items-center ml-2">
-              <p className='text-white text-[8px] ml-5'>{volunteers.length} members</p>
+              <p className='text-white text-[8px] ml-4'>{volunteers.length} members</p>
             </div>
           </div></div>
 

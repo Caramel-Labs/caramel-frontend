@@ -70,7 +70,7 @@ export default function Home() {
       </div>
 
       <div>
-        <h1 className="text-xl font-bold text-white mt-6"> You might Like</h1>
+        <h1 className="text-xl font-bold text-white mt-6"> You Might Like</h1>
         <HomeCarousel />
       </div>
 

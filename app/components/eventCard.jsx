@@ -60,8 +60,8 @@ export default function EventCard(props) {
     //       <span className="text-md text-white text-xs">{timeLeft} more</span>
     //     </div> */}
     //   </div>
-    <div key={i} className="relative flex w-full max-w-[48rem] flex  bg-clip-border text-gray-700 shadow-md mt-9 rounded-lg bg-zinc-950 ">
-  <div className="relative m-0 w-2/5 shrink-0 overflow-hidden bg-white bg-clip-border text-gray-700 flex items-center rounded-lg bg-zinc-950">
+    <div key={i} className="relative  w-full max-w-[48rem] flex  bg-clip-border text-gray-700 shadow-md mt-9 rounded-lg bg-zinc-950 ">
+  <div className="relative m-0 w-2/5 shrink-0 overflow-hidden  bg-clip-border text-gray-700 flex items-center rounded-lg bg-zinc-950 ">
     <img
       src={imgPath}
       alt="image"
@@ -69,10 +69,10 @@ export default function EventCard(props) {
     />
   </div>
   <div className="p-6 bg-zinc-950 rounded-lg w-3/5">
-    <h4 className="mb-2 font-sans text-based font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased text-base font-bold text-white line-clamp-1">
+    <h4 className="mb-2 font-sans text-based  leading-snug tracking-normal text-blue-gray-900 antialiased text-base font-bold text-white line-clamp-1">
       {name}
     </h4>
-    <p className="mb-2 font-sans text-gray-700 antialiased text-xs line-clamp-1 text-white text-[10px]">
+    <p className="mb-2 font-sans  antialiased text-xs line-clamp-1 text-white text-[10px]">
       {society}
     </p>
     <div className="mb-2 text-white">
