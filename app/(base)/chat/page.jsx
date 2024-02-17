@@ -53,7 +53,7 @@ export default function Chat() {
 		};
 
 		fetchMessages();
-	}, [username]);
+	}, [username,setMessages,dummy]);
 
 	const sendMessage = async (e) => {
 		e.preventDefault();
@@ -90,7 +90,7 @@ export default function Chat() {
 				// For example:
 				setMessages((prevMessages) => [
 					...prevMessages,
-					responseData.message, // Assuming 'responseData.message' holds the new message data
+					responseData.responseText, // Assuming 'responseData.message' holds the new message data
 				]);
 			}
 
