@@ -1,7 +1,7 @@
 'use client'
 import { useSession } from 'next-auth/react'
 import { useState } from 'react'
-import { useRouter } from 'next/router';
+
 
 export default function EventActionButton(props) {
 
@@ -10,7 +10,7 @@ export default function EventActionButton(props) {
     const currentUser = session?.user
     const isAdmin = currentUser?.isAdmin
     // console.log(currentUser,"current user")
-    const router = useRouter()
+    // const router = useRouter()
      // handle event registration
      async function handleClick() {
       
@@ -20,7 +20,7 @@ export default function EventActionButton(props) {
         event_id: props.id
       }
 
-      const response = await fetch('http://localhost:3001/profiles/join', {
+      const response = await fetch('https://loop-backend.cyclic.app/profiles/join', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -36,11 +36,11 @@ export default function EventActionButton(props) {
       }
 
     }
-     function handleUpdate() {
+    //  function handleUpdate() {
       
-      router.push('/createUpdate')
+    //   router.push('/createUpdate')
 
-    }
+    // }
 
     return (
      <div>
@@ -54,7 +54,7 @@ export default function EventActionButton(props) {
         {
           isAdmin && (
             <button
-              onClick={handleUpdate}
+              // onClick={handleUpdate}
               className='bg-red-500 p-4 rounded-lg h-12 w-80 mt-3 '
             >
               Add Event Update

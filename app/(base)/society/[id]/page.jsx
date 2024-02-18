@@ -6,7 +6,7 @@ import EventCard from '@/app/components/eventCard'
 export default async function Society({ params }) {
 
 
-  const getSociety = await fetch(`http://localhost:3001/society/${params.id}`, {
+  const getSociety = await fetch(`https://loop-backend.cyclic.app/society/${params.id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'

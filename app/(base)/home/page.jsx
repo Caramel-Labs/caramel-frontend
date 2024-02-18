@@ -16,7 +16,7 @@ export default function Home() {
 		console.log(currentUser, "current user");
 		const fetchEventData = async () => {
 			try {
-				const events = await fetch("http://localhost:3001/events/all", {
+				const events = await fetch("https://loop-backend.cyclic.app/events/all", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",

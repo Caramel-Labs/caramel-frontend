@@ -83,7 +83,7 @@ export default function GetEmail() {
             setFormData((prev) => ({ ...prev, ...{ email } }));
 
             try {
-                const response = await fetch('http://localhost:3001/email/send-otp', {
+                const response = await fetch('https://loop-backend.cyclic.app/send-otp', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

@@ -16,7 +16,7 @@ export default function SuccessPage() {
         }
             
         try {
-            const response = await fetch('http://localhost:3001/profiles/newProfile', {
+            const response = await fetch('https://loop-backend.cyclic.app/profiles/newProfile', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export default function SuccessPage() {
                 </p>
            
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-11 h-12 w-80 rounded-lg text-xs" onClick={handleCreateAccount}>
-                Let's go
+                Lets go
             </button>
         </div>
     );

@@ -51,7 +51,7 @@ export default function VerifyOTP() {
     // API call to verify the OTP
     
     try {
-      const response = await fetch('http://localhost:3001/email/verify-otp', {
+      const response = await fetch('https://loop-backend.cyclic.app/email/verify-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ export default function VerifyOTP() {
     e.preventDefault();
     const email = formData.email
     try {
-      const response = await fetch('http://localhost:3001/email/send-otp', {
+      const response = await fetch('https://loop-backend.cyclic.app/email/send-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

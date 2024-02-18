@@ -5,7 +5,7 @@ import EventList from "@/app/components/eventList";
 
 export default async function Profile({ params }) {
 	const response = await fetch(
-		`http://localhost:3001/profiles/${params.username}`,
+		`https://loop-backend.cyclic.app/profiles/${params.username}`,
 		{
 			method: "GET",
 			headers: {

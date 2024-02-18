@@ -77,7 +77,7 @@ export default function CreateUpdate(props) {
      setEventDescription('');
 
     // Send the data to the server
-    const response = await fetch('http://localhost:3001/events/addEventUpdate', {
+    const response = await fetch('https://loop-backend.cyclic.app/addEventUpdate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

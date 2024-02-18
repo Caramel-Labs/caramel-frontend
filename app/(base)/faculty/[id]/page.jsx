@@ -14,7 +14,7 @@ export default function Faculty({ params }) {
 
   const fetchFacultyData = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/faculty/${params.id}`, {
+      const response = await fetch(`https://loop-backend.cyclic.app/faculty/${params.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'

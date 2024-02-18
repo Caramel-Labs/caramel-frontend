@@ -14,7 +14,7 @@ const authOptions = {
             
             async authorize(credentials) {
                 console.log(credentials)
-                const res = await fetch('http://localhost:3001/auth', {
+                const res = await fetch('https://loop-backend.cyclic.app/auth', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

@@ -9,15 +9,17 @@ import EventUpdate from '@/app/components/eventUpdate'
 
 export default async function Event({ params }) {
 
-    const imgPath = `https://res.cloudinary.com/dekv3xmjm/image/upload/caramel/events/${params.id}.jpg`
+   
     const locationPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#334155" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
     const calendarPath = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#334155" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
 
 
-    const event = await getData(`http://localhost:3001/events/${params.id}`)
+    const event = await getData(`https://loop-backend.cyclic.app/events/${params.id}`)
     console.log(event)
     const { _id, name, society, date, time, description, venue, tickets, participants, likes , updates} = event
-
+    console.log(society)
+    const societyImgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1701971490/Socities/${society}.jpg`
+    const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1701971490/Events/${name}.jpg`
     const formattedDate = eventPageFormat(date)
     const people = [
         "kalana2001",
@@ -38,7 +40,7 @@ export default async function Event({ params }) {
 
     return (
         <div className='bg-zinc-900 h-screen'>
-            <Image height="400" width="800" src={imgPath} alt='hero-image' className=''></Image>
+            <Image height="200" width="800" src={imgPath} alt='hero-image' className=''></Image>
             <h1 className='text-white ml-4 mt-4 text-xl'>{name}</h1>
             {/* already registered user avatars */}
 
@@ -50,7 +52,7 @@ export default async function Event({ params }) {
                 <div className='ml-40'><p className='text-white mt-4'> {participants.length} already registered</p></div>
             </div> */}
             <div className='mt-4 ml-4 '>
-                <div class="flex items-center justify-between">
+                <div className="flex items-center justify-between">
                     <div className='flex'>
                         <div class="flex items-center justify-center -space-x-4 rtl:space-x-reverse">
                             <img className="w-10 h-10 border-2 border-white rounded-full dark:border-gray-800" src={avatarPath1} alt="" />
@@ -99,7 +101,7 @@ export default async function Event({ params }) {
                     <p className='ml-20 text-white'> {society}</p> */}
                 <div class="flex mt-3 -ml-6">
                     <div class=" p-4  flex items-center justify-center ml-10 rounded-full bg-white h-12 w-12 border-solid ">
-                        <Image height="100" width="100" src={""} alt='society-image' ></Image>
+                        <Image height="100" width="100" src={societyImgPath} alt='society-image' ></Image>
                     </div>
                     <div class="w-3/4 p-2 ml-4">
                         <p className='text-white text-xs'>Organized by </p>

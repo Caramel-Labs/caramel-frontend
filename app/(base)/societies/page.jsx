@@ -4,7 +4,7 @@ import getData from '@/app/utility/getData.js'
 
 export default async function SocietyFeed(){
    
-    const societies= await getData("http://localhost:3001/society/all")
+    const societies= await getData("https://loop-backend.cyclic.app/society/all")
     
         return(
             <div className="bg-zinc-950">

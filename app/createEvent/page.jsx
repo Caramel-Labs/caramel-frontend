@@ -123,7 +123,7 @@ export default function CreateEvent() {
     console.log("output", eventData)
 
     // Send the data to the server
-    const response = await fetch('http://localhost:3001/events/newEvent', {
+    const response = await fetch('https://loop-backend.cyclic.app/newEvent', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

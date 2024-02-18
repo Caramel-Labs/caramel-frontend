@@ -5,7 +5,7 @@ import FacultyCard from "@/app/components/facultyCard"
 
 export default async function FacultyFeed(){
    
-    const faculties= await getData("http://localhost:3001/faculty/all")
+    const faculties= await getData("https://loop-backend.cyclic.app/faculty/all")
     console.log(faculties)
         return(
             <div className="bg-zinc-950 h-screen">

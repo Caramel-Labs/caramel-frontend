@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react'
 export default function Message(props) {
   const { content, isbot } = props.message;
 
-  console.log(props.message)
+
 
   const { data: session } = useSession();
   const currentUser = session?.user;

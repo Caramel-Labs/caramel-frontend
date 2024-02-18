@@ -3,6 +3,7 @@ import Image from 'next/image'
 export default function SocietyCard(props) {
 
   const { i, _id, societyName, description, volunteers } = props.society
+  console.log(societyName)
 
   const avatarPath1 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/kalana2001.jpg`
   const avatarPath2 = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1691679809/ProfilePics/lasindu2001.jpg`

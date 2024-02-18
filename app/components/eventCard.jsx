@@ -1,17 +1,12 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import {
-	parseStringToDate,
-	getTimeDifference,
-} from "@/app/utility/getDaysLeft";
 import { eventCardFormat } from "@/app/utility/formatDate";
 
 export default function EventCard(props) {
 	const { i, name, society, date, venue } = props.event;
 
 	const imgPath = `https://res.cloudinary.com/dy3hecuzo/image/upload/v1701971490/Events/${name}.jpg`;
-	const fallBackPath = "/../public/event-bg.jpg";
+	// const fallBackPath = "/../public/event-bg.jpg";
 	const formattedDate = eventCardFormat(date);
 	// const parsedDate = parseStringToDate(date, time)
 	// const timeLeft = getTimeDifference(parsedDate)

@@ -22,7 +22,7 @@ export default function LikeButton(props) {
       const userId = currentUser.username; // Replace with actual user ID
       const eventId = props.props.eventId; // Replace with actual event ID
       
-      const response = await fetch(`http://localhost:3001/events/${liked ? 'dislike' : 'like'}`, {
+      const response = await fetch(`https://loop-backend.cyclic.app/${liked ? 'dislike' : 'like'}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

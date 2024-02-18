@@ -8,7 +8,7 @@ export default function Chat() {
 	const dummy = useRef();
 	const [messages, setMessages] = useState([]);
 	const [formValue, setFormValue] = useState("");
-	const [data, setData] = useState(null);
+
 
 	const { data: session } = useSession();
 	const currentUser = session?.user;
@@ -30,38 +30,40 @@ export default function Chat() {
 	useEffect(() => {
 		const fetchMessages = async () => {
 			try {
-				const response = await fetch("http://localhost:3001/chat/", {
-					method: "POST",
+				const response = await fetch(`https://loop-backend.cyclic.app/chat/${username}`, {
+					method: "GET",
 					headers: {
 						"Content-Type": "application/json", // Set the appropriate content type if sending JSON data
 						// Add other headers if required
 					},
-					body: JSON.stringify({ username: username }),
-				});
+				})
+				const data = await response.json();
 
 				if (!response.ok) {
 					throw new Error("Network response was not ok");
+					
 				}
-				const data = await response.json();
-				console.log(data, "msgs awa ");
-				setData(data); // Update messages state with fetched data
-				setMessages(data.messeges);
-				dummy.current.scrollIntoView({ behavior: "smooth" });
+				setMessages(data);
+				// dummy.current.scrollIntoView({ behavior: "smooth" });
+			
 			} catch (error) {
 				console.error("Error fetching messages:", error);
 			}
 		};
 
 		fetchMessages();
+		
 	}, [username,setMessages,dummy]);
+
+	useEffect(() => {
+		// Scroll to the bottom of the chat when the component mounts
+		dummy.current.scrollIntoView({ behavior: "auto" });
+	  }, []);
+	  
+
 
 	const sendMessage = async (e) => {
 		e.preventDefault();
-		const chatData = {
-			messege: formValue,
-			username: username,
-			chat_id: data._id,
-		};
 		try {
 			// Update messages state with the new message instantly
 			setMessages((prevMessages) => [
@@ -69,30 +71,41 @@ export default function Chat() {
 				{ content: formValue, isBot: false },
 			]);
 			setFormValue("");
-			dummy.current.scrollIntoView({ behavior: "smooth" });
+			// dummy.current.scrollIntoView({ behavior: "smooth" });
+			window.scrollTo({
+				top: dummy.current.offsetTop,
+				behavior: "smooth"
+			  });
+
+			const chatData = {
+				messege: formValue,
+				username: username,
+			}
+			
+			console.log(JSON.stringify(chatData))
+
 
 			const response = await fetch("http://localhost:3001/messege/", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify({
-					messege: formValue,
-					username: username,
-					chat_id: data._id,
-				}),
+				body: JSON.stringify(chatData),
 			});
 
 			const responseData = await response.json();
-
-			if (response.ok) {
+			
+			 const botMessage = {
+				content: responseData.responseText,
+				isbot: true,
+			 }
 				// Update messages state with the received data if required
 				// For example:
 				setMessages((prevMessages) => [
 					...prevMessages,
-					responseData.responseText, // Assuming 'responseData.message' holds the new message data
+					botMessage, // Assuming 'responseData.message' holds the new message data
 				]);
-			}
+			
 
 			if (!response.ok) {
 				throw new Error("Network response was not ok");
