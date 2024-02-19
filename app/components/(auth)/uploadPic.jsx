@@ -67,7 +67,7 @@ export default function UploadPic() {
       </h1>
       <p className='text-center text-xs text-white pt-9'>Entering your personal email address
         means entering your details manually,
-        but don't worry, we'll guide you through it!</p>
+        but do not worry, we will guide you through it!</p>
 
       <div className='rounded-full'>
         <img src={imageSrc || defaultPic} className='rounded-full mt-12 h-44 w-44 mx-20' />
