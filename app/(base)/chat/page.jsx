@@ -85,7 +85,7 @@ export default function Chat() {
 			console.log(JSON.stringify(chatData))
 
 
-			const response = await fetch("http://localhost:3001/messege/", {
+			const response = await fetch("https://loop-backend.cyclic.app/chat/", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

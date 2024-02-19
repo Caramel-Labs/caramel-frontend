@@ -11,16 +11,17 @@ const authOptions = {
                 email: { label: "Email", type: "email", placeholder: "hello@gmail.com" },
                 password: { label: "Password", type: "password" }
             },
-            
+            // https://loop-backend.cyclic.app/
             async authorize(credentials) {
                 console.log(credentials)
-                const res = await fetch('https://loop-backend.cyclic.app/auth', {
+                const credData = {
+                    email: credentials?.email,
+                    password: credentials?.password
+                }
+                const res = await fetch('http://localhost:3001/auth/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        email: credentials?.email,
-                        password: credentials?.password
-                    })
+                    body: JSON.stringify(credData)
                 })
                     
                 const user = await res.json()

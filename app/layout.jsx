@@ -5,8 +5,12 @@ import AuthProvider from '@/app/utility/AuthProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Caramel App',
-  description: 'This is the caramel app babyyy',
+  title: 'Loop',
+  description: 'Stay in the loop',
+  manifest: '/manifest.json',
+  icon: '/favicon.png',
+  theme: '#000000',
+
 }
 
 export default function RootLayout({ children }) {

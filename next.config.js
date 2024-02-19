@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {}
 
-module.exports = {
-
+const withPWA = require('next-pwa')({
+    dest: 'public'
+  })
+  
+  module.exports = withPWA({
     images: {
         domains: ['res.cloudinary.com']
       },
@@ -21,4 +24,5 @@ module.exports = {
                 }         
         ]
     }
-}
+    // next.js config
+  })
