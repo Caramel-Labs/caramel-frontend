@@ -135,7 +135,7 @@ export default function GetEmail() {
     {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
 
     <div className="flex gap-4 justify-center mt-4">
-        <button type="submit" className="h-11 px-6 inline-block bg-blue-600 font-semibold text-white rounded-md mt-72 w-72 h-12 text-xs">
+        <button type="submit" className=" px-6 inline-block bg-blue-600 font-semibold text-white rounded-md mt-72 w-72 h-12 text-xs">
             Next
         </button>
     </div>

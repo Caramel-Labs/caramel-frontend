@@ -107,6 +107,7 @@ export default function Chat() {
 				]);
 			
 
+<<<<<<< Updated upstream
 			if (!response.ok) {
 				throw new Error("Network response was not ok");
 			}
@@ -158,4 +159,31 @@ export default function Chat() {
 			</div>
 		</div>
 	);
+=======
+  {/* Input */}
+  <div className=" border-gray-200 px-4 mb-2 sm:mb-0 fixed left-0 right-0 mt-96 pt-72">
+    <form onSubmit={sendMessage} className="relative">
+      <div className="flex items-center">
+        <input
+          value={formValue}
+          onChange={(e) => setFormValue(e.target.value)}
+          placeholder="Say something nice"
+          type="text"
+          className="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-4 bg-gray-200 rounded-md py-3 text-sm"
+        />
+        <button
+          type="submit"
+          disabled={!formValue}
+          className="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white  hover:bg-none focus:outline-none absolute right-2 sm:relative sm:right-auto"
+        >
+          {sendIcon}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+  
+  
+  );
+>>>>>>> Stashed changes
 }
