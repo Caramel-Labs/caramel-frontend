@@ -18,9 +18,9 @@ export default function CarouselCard(props) {
 		//     </div>
 		// </div>
 
-		<div className="max-w-sm bg-zinc-950 rounded-lg shadow  mt-6">
+		<div className="max-w-sm bg-zinc-950 rounded-lg shadow mt-6">
 			<Image
-				className="rounded-t-lg w-full h-48 object-cover"
+				className="rounded-lg w-full h-48 object-cover px-1"
 				src={imgPath}
 				alt="header img"
 				width="390"
