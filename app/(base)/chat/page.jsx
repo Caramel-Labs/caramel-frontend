@@ -113,7 +113,7 @@ export default function Chat() {
 	};
 
 	return (
-		<div className="flex-1 p-2 sm:p-6 justify-between flex flex-col h-screen relative bg-zinc-950">
+		<main className="flex-1 p-2 pb-20 justify-between flex flex-col h-screen relative bg-zinc-950">
 			{/* Header */}
 			<ChatHeader />
 
@@ -139,18 +139,18 @@ export default function Chat() {
 							onChange={(e) => setFormValue(e.target.value)}
 							placeholder="Ask me anything..."
 							type="text"
-							className="text-xs w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-2 bg-gray-200 rounded-md py-2"
+							className="text-xs w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-2 bg-gray-200 rounded-md py-4"
 						/>
 						<button
 							type="submit"
 							disabled={!formValue}
-							className="inline-flex items-center justify-center rounded-lg px-4 py-3 transition duration-500 ease-in-out text-white  hover:bg-blue-400 focus:outline-none absolute right-2 sm:relative sm:right-auto"
+							className="inline-flex items-center justify-center rounded-lg pl-4 py-3 transition duration-500 ease-in-out text-white  hover:bg-blue-400 focus:outline-none absolute right-2 sm:relative sm:right-auto"
 						>
 							{sendIcon}
 						</button>
 					</div>
 				</form>
 			</div>
-		</div>
+		</main>
 	);
 }

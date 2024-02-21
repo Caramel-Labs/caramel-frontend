@@ -84,6 +84,11 @@ export default function Home() {
 						</Link>
 					))}
 			</div>
+
+			{/* "Create Event" Floating Action Button */}
+			<div className="fixed bottom-24 right-4 bg-violet-800 px-4 py-2 rounded-lg">
+				<p className="text-white text-4xl">+</p>
+			</div>
 		</div>
 	);
 }

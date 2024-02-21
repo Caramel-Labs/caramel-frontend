@@ -15,6 +15,7 @@ export default async function Profile({ params }) {
 	);
 	const user = await response.json();
 	const { username, faculty, intake, firstName, lastName } = user;
+	const shortenedFacultyName = faculty.replace("Faculty of ", "");
 	const joinedEvents = user.eventId;
 
 	console.log(user);
@@ -48,10 +49,10 @@ export default async function Profile({ params }) {
 			</div>
 
 			<div className="grid h-auto">
-				<div className="p-5 text-black max-w-sm ">
+				<div className="text-black max-w-sm">
 					<div className="flex justify-center">
 						<Image
-							className="w-32 h-32 rounded-full mx-auto border-black border-1 object-cover mr-6"
+							className="w-32 h-32 rounded-full border-black border-1 object-cover mr-6"
 							src={imgPath}
 							alt="profile-picture"
 							width="128"
@@ -92,7 +93,9 @@ export default async function Profile({ params }) {
 
 						<div>
 							<p className="text-xs text-white">Faculty</p>
-							<p className="text-base mt-1 text-white">{faculty}</p>
+							<p className="text-base mt-1 text-white">
+								{shortenedFacultyName}
+							</p>
 						</div>
 
 						<div>

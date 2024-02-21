@@ -1,7 +1,7 @@
 export default function ChatHeader() {
-  return (
-    <div className="flex justify-center">
-      <div className="text-white text-2xl mt-1">Loop AI</div>
-    </div>
-  );
+	return (
+		<div className="flex justify-center">
+			<div className="text-white font-bold text-sm py-4">Loop AI</div>
+		</div>
+	);
 }
