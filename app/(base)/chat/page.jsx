@@ -120,7 +120,7 @@ export default function Chat() {
 			{/* Messages */}
 			<div
 				id="messages"
-				className="flex flex-col space-y-1 p-3 pt-0 overflow-y-auto pb-96 bg-zinc-950"
+				className="flex flex-col p-3 pt-0 overflow-y-auto pb-16 bg-zinc-950"
 			>
 				{/* Chat messages */}
 				{messages &&

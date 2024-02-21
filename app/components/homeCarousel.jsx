@@ -14,9 +14,7 @@ export default function HomeCarousel() {
 
 	useEffect(() => {
 		if (userName) {
-			fetch(
-				`https://loop-recommender-caramel-labs-2.koyeb.app/get-recommendations/${userName}/`
-			)
+			fetch(`http://localhost:8000/get-recommendations/${userName}/`)
 				.then((response) => response.json())
 				.then((data) => {
 					// Assuming data from the endpoint is an object with a recommendations property (an array of events)
